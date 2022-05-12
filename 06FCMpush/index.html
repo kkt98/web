@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>FCM test</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+
+        <h2>FCM PUSH TEST page</h2>
+
+        <p>cUrl library test</p>
+        <!-- php서버에서 다른 php문서를 실행시키는 연습[마치 Redirection 같은 동작] -->
+        <form action="./clientUrlTest.php" method="post">
+            <input type="submit">
+
+        </form>
+
+        <hr>
+
+        <p>Firebase Cloud Messageing PUSH 서버에 메세지 보내기</p>
+
+        <form action="./fcmPush.php" method="POST">
+            <input type="text" name="name" placeholder="enter name">
+            <input type="text" name="msg" placeholder="enter message">
+
+            <input type="submit">
+        </form>
+
+    </body>
+
+</html>

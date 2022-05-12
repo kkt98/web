@@ -1,0 +1,6 @@
+[
+    {"no":1, "name":"sma", "age":20, "address":"seoul","favorite":false},
+    {"no":2, "name":"robin", "age":25, "address":"paris","favorite":true},
+    {"no":3, "name":"park", "age":30, "address":"busan","favorite":true}
+
+]

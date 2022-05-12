@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>From test file</title>
+    </head>
+
+    <body>
+        <fieldset>
+            <legend>파일전송</legend>
+            <!-- 파일전송할때는 반드시 enctype 지정 -> multipart/form-data -->
+            <form action="./file.php" method="post" enctype="multipart/form-data">
+                <input type="file" name="aaa" accept="Image/png, Image/jpeg"><br>
+                <input type="submit">
+            </form>
+        </fieldset>
+
+        <fieldset>
+            <legend>여러개 파일 전송</legend>
+            <form action="./file2.php" method="post" enctype="multipart/form-data">
+                <input type="file" name="bbb[]" multiple="multiple">
+                <!-- Type="image"은 submit 타입을 대체함 -->
+                <input type="image" src="./Image/frog.png" width="200">
+            </form>
+        </fieldset>
+    </body>
+</html>

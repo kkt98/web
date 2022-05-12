@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+    <!-- 1. 화면에안보이는 영역 -->
+    <head>
+        <title>My Web Page</title>
+
+        <!-- 기본적으로 웹문서는 한글이 깨짐. 한글도 보이려면 "ut-8" 인코딩 설정 -->
+        <meta charset="utf-8">
+
+        <!-- 스타일 작업 : CSS라는 언어문법 사용 -->
+        <!-- <style>
+            /* 이 <style>영역 안에서는 CSS문법체계를 따름 */
+            h2{ background-color: yellow; }
+            p{ color: red; }
+            img{ width: 300px; display: block; }
+            button{ margin-top: 16px; }
+        </style> -->
+
+        <!-- 동적 동작을 위한 스크립트 작업 : Javascript 언어 -->
+        <!-- <script>
+            //이 <script>안에서는 Javascript 언어 문법체계를 따름
+            
+            // 기능(함수, 메소드)
+            function show(){
+                //Javascript에 이미 만들어 놓은 기능함수 호출(경고창 보이기)
+                alert("로그인 버튼 클릭");
+                
+            }
+
+            function changeImage(){
+                //이미지를 보여주는 요소를 찾아와서 새로운 이미지 설정
+                var e = document.getElementById("aa");
+                e.src="./paris.jpg"
+            }
+        </script> -->
+
+        <!-- CSS와 JS는 별도의 외부문서로 만들어서 각각 작업하고 -->
+        <!-- 이 HTML문서에 연결 하여 사용하는 것을 권장
+        <link href="./index.css" rel="stylesheet">
+        <script src="./index.js"></script>
+        
+    </head>
+
+    <!- 2. 브라우저의 주소창 아래 화면에 보이는 영역 -->
+    <body>
+        
+        <h2>My First Web Page</h2>
+        <p>This is Firs web Page</p>
+        <p>한글도 된다.</p>
+        <p>안녕하세요.</p>
+
+        <!-- "./" : 현재폴더 -->
+        <img src="./newyork.jpg" id="aa">
+
+        <button onclick="show()">로그인</button>
+        <button onclick="changeImage()">이미지 변경</button>
+
+    </body>
+
+</html>

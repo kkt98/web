@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CSS TEST</title>
+
+        <!-- 웹문서(html)에 스타일 적용하기 -->
+        
+        <!-- CSS를 작성할 수 있는 영역 -->
+        <style>
+            /* 이 <style>영역 안에서는 CSS의 문법체계를 따름 */
+
+            /* 기본 문법 - 선택자{속성:값; 속성2:값;} */
+            /* 주요 용어 : 선택자, 속성, 값 */
+
+            /* 선택자의 종류 */
+            /* 1. 타입(요소종류) 선택자 */
+            h2{color: skyblue;}
+            p{color: burlywood; font-family: serif;}
+
+            /* 2. 전체 선택자 */
+            *{font-style: italic; color: cornflowerblue;} 
+            /* 그룹선택자 보다 개별선택자가 더 우선시 적용된다 */
+            
+            /* 3. 아이디 선택자 */
+            #p1{color: slategray;}
+
+            /* 4. 클래스 선택자 */
+            .aa{color: violet;}
+
+            /* p요소중에서 class가 aa인 선택자 */
+            p.aa{background-color: burlywood;}
+
+            /* 5. 선택자 그룹 */
+            li, a{color: gray;}
+
+            /* 6. 자식, 자손 선택자 */
+            #ss>p{color: black;}
+
+            #ss p{color: darkgreen;}
+
+            /* 아래 두 선택자는 저혀 다름 */
+            p.aa{} /* p요소들 중에서 class가 aa인것 */
+            p .aa{} /* p요소의 자손들 중에서 class가 aa인것 */
+
+            /* 복잡한 형태의 선택자 */
+            #kk ul.gg>li{background-color: aqua;}
+
+            /* 7. 속성 선택자 */
+            p[class]{font-weight: bold;}
+            div[id="ss"]{font-size: 30px;}
+
+            /* 8. 의사 선택자 */
+            a:link{color: blue;}
+            a:visited{color: brown;}
+            a:hover{color: green;}
+            a:active{color: red;}
+
+            /* table tr:first-child{background-color: aqua;}
+            table tr:last-child{background-color: aquamarine;}
+            table tr:nth-child(2){background-color: blue;}
+            table tr:nth-child(3){background-color: royalblue;} */
+
+            table tr:nth-child(2n+1){background-color: seagreen;}
+
+            #kk ul li:first-child{color: red;}
+
+        </style>
+    </head>
+
+    <body>
+        <h2 class="aa">CSS Selector Test</h2>
+
+        <p id="p1">Nice to meet you</p>
+        <p class="aa">Hello</p>
+
+        <ul>
+            <li>aaa</li>
+            <li>bbb</li>
+            <li>ccc</li>
+        </ul>
+
+        <a href="">naver</a>
+
+        <div id="ss">
+            <h4>Region</h4>
+
+            <p>Hello world</p>
+
+            <div>
+                <p>Apple</p>
+                <p>Banana</p>
+                <p>Orange</p>
+            </div>
+        </div>
+
+        <div id="kk">
+            <ul>
+                <li>111</li>
+                <li>222</li>
+                <li>333</li>
+            </ul>
+
+            <ul class="gg">
+                <li>uuu</li>
+                <li>ggg</li>
+                <li>www</li>
+            </ul>
+        </div>
+
+        <a href="https://www.google.com">google</a>
+
+        <table border="1">
+            <tr>
+                <td>aa</td>
+                <td>bb</td>
+                <td>cc</td>
+                <td>dd</td>
+            </tr>
+
+            <tr>
+                <td>aa</td>
+                <td>bb</td>
+                <td>cc</td>
+                <td>dd</td>
+            </tr>
+
+            <tr>
+                <td>aa</td>
+                <td>bb</td>
+                <td>cc</td>
+                <td>dd</td>
+            </tr>
+
+            <tr>
+                <td>aa</td>
+                <td>bb</td>
+                <td>cc</td>
+                <td>dd</td>
+            </tr>
+        </table>
+
+    </body>
+</html>

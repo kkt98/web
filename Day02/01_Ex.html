@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>01 EX</title>
+    </head>
+
+    <body>
+        
+        <audio src="./Audio/old_pop.mp3" autoplay="autoplay" controls="controls"></audio>
+
+        <!-- 브라우저마다 음원 유형에 대응하지 못하는 경우가 있다.. 이를위해 -->
+        <!-- 속성명과 속성값이 같으면 속성명만 작성해도 됨 -->
+        <audio controls>
+            <source src="./Audio/old_pop.mp3" type="audio/mp3"> <!-- MIME의 타입 -->
+            <source src="./Audio/old_pop.ogg" type="audio/ogg">
+            <source src="./Audio/old_pop.wav" type="audio/wav">
+        </audio>
+
+        <video src="./Video/movie.ogv" controls></video>
+
+        <video controls poster="./Image/frog.png" width="640" height="480">
+            <source src="./Video/trailer.mp4" type="video/mp4">
+            <source src="./Video/trailer.ogv" type="video/ogg">
+            <source src="./Video/trailer.webm" type="video/webm">
+        </video>
+
+        <br> 
+        <hr>
+        <hr>
+        <br>
+
+        <!-- iframe -->
+        <iframe src="../Day01/02_Text.html" width="400" height="200"></iframe>
+
+        <!-- 다른 웹서버의 문서도 표시 가능 -->
+        <iframe src="http://sux1011.dothome.co.kr/index.html" frameborder="1"></iframe>
+        <iframe src="http://www.mrhi.or.kr" frameborder="0"></iframe>
+        
+        <!-- a에 의해 열리는 파일을 target으로 iframe을 지정 -->
+        <iframe src="" frameborder="2" name="aaa"></iframe>
+        <a href="http://www.w3c.org" target="aaa">월드 와이드 웹 사이트</a>
+
+        <br>
+        <hr>
+        <br>
+
+        <!-- 영역 만들기 요소 -->
+        <!-- <div>요소 : Block요소 -->
+        <div style="background-color: lightblue; border: 2px solid blue;">
+            <h2>title</h2>
+            <p>This is message</p>
+        </div>
+
+        <!-- div의 블럭요소특징 확인 -->
+        <p>
+            안녕하세요. 나는 <div style="color: blue;">김아무개</div> 입니다
+        </p>
+
+        <!-- <span>요소 : Inline요소 -->
+        <p>
+            안녕하세요. 나는 <span style="color: blue;">김아무개</span> 입니다
+        </p>
+    </body>
+</html>

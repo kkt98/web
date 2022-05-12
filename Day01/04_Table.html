@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>05 table</title>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <table border="1">
+            <tr>
+                <th>no</th>
+                <th>name</th>
+                <th>message</th>
+            </tr>
+    
+            <tr>
+                <td>1</td>
+                <td>sam</td>
+                <td>Hello web</td>
+            </tr>
+    
+            <tr>
+                <td>2</td>
+                <td>robin</td>
+                <td>Nice to meet you</td>
+                <td>2022-05-10</td>
+            </tr>
+        </table>
+
+        <!-- 셀 병합 -->
+        <table border="1">
+            <tr>
+                <td rowspan="2">111</td>
+                <td colspan="3">222</td>
+                <td>333</td>
+            </tr>
+
+            <tr>
+                <td>444</td>
+                <td>555</td>
+                <td>666666666</td>
+            </tr>
+            <!-- 테이블 제목 -->
+            <caption>테이블 제목</caption>
+            <!-- caption의 위치는 무조건 상단 - 바꾸고싶다면 -> CSS -->
+        </table>
+
+        <hr>
+
+        <!-- 테이블 <td>요소 안에 다른 요소들을 배치 -->
+        
+        <table border="1" width="100%">
+            <tr>
+                <td width="30%"><a href="http://www.naver.com">NAVER</a></td>
+                <td>
+                    <ul>
+                        <li>aaa</li>
+                        <li>bbb</li>
+                        <li>ccc</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>테이블 안에는 어떤 요소든 넣을 수 있음. 한글은 띄어쓰기가 없어도 자동 줄바꿈이 된다.</p>
+                    <p>asdasdqwlidhkcsdchkgasayecgskjcgyksejaycgkjkacbjyck bweyckabweycwkabeucwkybeuctlqkfaskldwkdtlqkf</p>
+                </td>
+
+                <td>
+                    <img src="./image/koala.jpg" alt="코알라" width="70%" height="150">
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <!-- 1. 화면에 안보이는 영역 -->
+    <head>
+        <title>Http Request</title>
+        <meta charset="utf-8">
+
+        <!-- 스타일적용 -->
+        <style>
+            label{width: 7em; display: inline-block; text-align: right;}
+        </style>
+
+    </head>
+
+    <!-- 2. 화면에 보이는 영역 -->
+    <body>
+
+        <h2>This is Http Test page</h2>
+
+        <fieldset>
+            <legend>GET METHOD TEST</legend>
+
+            <!-- HTML에서 서버의 다른 문서(웹앱 - PHP/ASP/JSP)를 실행하는 요소 -->
+            <form action="./getTest.php" method="GET">
+                
+                <p>
+                    <label for="">name:</label>
+                    <input type="text" name="title">
+                </p>
+
+                <p>
+                    <label for="">message:</label>
+                    <input type="text" name="msg">
+                </p>
+
+                <p>
+                    <!-- type="submit"버튼을 클릭하면 <form>요소의 action속성에 지정한 웹프로그램이 실행됨(페이지가 변경됨) -->
+                    <input type="submit"> 
+                    <input type="reset">
+                </p>
+            </form>
+
+        </fieldset>
+
+
+        <fieldset>
+            <legend>POST METHOD TEST</legend>
+
+            <form action="./postTest.php" method="POST">
+                <p>
+                    <label for="in1">ID : </label>
+                    <input type="text" name="id" id="in1">
+                </p>
+
+                <p>
+                    <label for="in2">PASS : </label>
+                    <input type="password" name="pw" id="in2">
+                </p>
+
+                <p>
+                    <input type="submit" value="로그인">
+                    <input type="reset" value="취소">
+                </p>
+
+            </form>
+
+        </fieldset>
+
+
+        <fieldset>
+            <legend>Image File Upload</legend>
+
+            <!-- file전송할때는 반드시 enctype="multipart/form-data" 속성지정 필수 -->
+            <form action="./uploadFile.php" method="POST" enctype="multipart/form-data">
+                
+                <p>
+                    <label for="">Image File : </label>
+                    <input type="file" name="img">
+                </p>
+
+                <p>
+                    <input type="submit">
+                    <input type="reset">
+                </p>
+
+            </form>
+
+        </fieldset>
+
+
+        <fieldset>
+            <legend>POST data with File</legend>
+
+            <form action="./postDataWithFile.php" method="POST" enctype="multipart/form-data">
+                <p>
+                    <label for="in3">Title:</label>
+                    <input type="text" id="in3" name="title">
+                </p>
+                <p>
+                    <label for="in4">Message:</label>
+                    <textarea name="msg" id="in4" cols="40" rows="5"></textarea>
+                </p>
+                <p>
+                    <label for="in5">Image File:</label>
+                    <input type="file" name="img">
+                </p>
+                <p>
+                    <input type="submit">
+                    <input type="reset">
+                </p>
+            </form>
+
+            
+        </fieldset>
+
+        <fieldset>
+            <legend>Load DB data</legend>
+            <form action="./loadDB.php" method="GET">
+                <input type="submit" value="load">
+            </form>
+        </fieldset>
+        
+    </body>
+</html>

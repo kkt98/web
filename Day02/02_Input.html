@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>input element</title>
+    </head>
+
+    <body>
+        <input type="text" name="in01" size="40"><br>
+        <input type="password" name="in02"><br>
+
+        <hr>
+
+        <!-- 라디오 버튼 : single choice [name속성값을 같게 하면 그룹이 됨] -->
+        라디오버튼 : 
+        <input type="radio" name="rg" value="aaa">aaa
+        <input type="radio" name="rg" value="bbb">bbb
+
+        <br>
+
+        <!-- <label>을 사용하면 글씨를 클릭해도 선택 가능 -->
+        <input type="radio" name="rg1" value="male" id="rb1" checked="checked">
+        <label for="rb1">male</label>
+
+        <input type="radio" name="rg1" value="female" id="rb2" checked>
+        <label for="rb2">female</label>
+
+        <!-- php에서는 선택괸 라디오버튼의 value속성값이 전달됨. (식별자 키는 rg1) -->
+
+        <br>
+        <hr>
+
+        <!-- 체크박스 : nultiple choice -->
+        <label><input type="checkbox" name="fruits[]" value="apple">Apple</label>
+        <label><input type="checkbox" name="fruits[]" value="banana" checked>Banana</label>
+        <label><input type="checkbox" name="fruits[]" value="orange">Orange</label>
+
+        <!-- php에서는 선택된 체크박스들의 value값을 배열로 전달받음 [키는 : fruits] -->
+
+        <br>
+        <hr>
+
+        <input type="submit" value="전송">
+        <input type="reset" value="취소">
+
+        <hr>
+
+        <input type="button" value="중복체크" onclick="alert('중복된 id입니다')">
+
+        <button onclick="alert('click button')">버튼</button>
+
+        <br>
+        <hr>
+
+        여러줄 입력 : <br>
+        <textarea name="in03" cols="40" rows="5"></textarea>
+
+        <br>
+        <br>
+
+        <select name="sell">
+            <option value="aa">aaa</option>
+            <option value="bb">bbb</option>
+            <option value="cc">ccc</option>
+        </select>
+
+        <!-- 옵션 그룹 -->
+        <select name="sel2">
+            <optgroup label="text">
+                <option value="a">aaa</option>
+                <option value="b">bbb</option>
+                <option value="c">ccc</option>
+            </optgroup>
+
+            <optgroup label="number">
+                <option value="1">111</option>
+                <option value="2">222</option>
+                <option value="3">333</option>
+            </optgroup>
+        </select>
+
+        <hr>
+
+        <fieldset>
+            <legend>필드셋의 제목</legend>
+            <label>이름 : <input type="text" name="name"></label>
+            <label>주소 : <input type="text" name="address"></label>
+        </fieldset>
+    </body>
+</html>
