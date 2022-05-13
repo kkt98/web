@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>anchor, list style</title>
+
+        <style>
+            a#aa:link{color: blue;}
+            a#aa:visited{color: green;}
+            a#aa:hover{color: red; font-size: 2rem;}
+            a#aa:active{color: yellow;}
+
+            p:hover{background-color: green;}
+
+            img{background-color: yellow; border: 2px solid red;}
+            img:hover{background-color: gray; width: 100%;}
+
+            ul#a{ list-style-type: circle;}
+            ul#b{ list-style-type: disc;}
+            ul#c{ list-style-type: square;}
+
+            ul#d{ list-style-type: square; list-style-position: inside;}
+
+            ul#e{ list-style-image: url("./image/border.png"); list-style-position: inside;}
+
+            ol#f{ list-style: lower-alpha; }
+            ol#f{ list-style: lower-greek; }
+            ol#f{ list-style: lower-roman; }
+            ol#f{ list-style: upper-roman; }
+            ol#f{ list-style: decimal-leading-zero; }
+
+            ul#e{ list-style: none;}
+
+        </style>
+
+    </head>
+    <body>
+        
+        <a href="#" id="aa">aaaaaaaa</a>
+        <p>Nice to meet you.</p>
+
+        <img src="./image/image.png" alt="image">
+
+        <hr>
+
+        <ul id="a">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+        </ul>
+        <ul id="b">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+        </ul>
+        <ul id="c">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+        </ul>
+        <ul id="d">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+        </ul>
+        <ul id="e">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+        </ul>
+
+        <ol id="f">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+        </ol>
+
+
+    </body>
+</html>

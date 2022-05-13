@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>Table style</title>
+
+        <style>
+            table{
+                border: 2px solid; border-collapse: collapse; text-align: center;
+            }
+
+            th, td{border: 1px solid;}
+
+            th{background-color: green; color: wheat;}
+
+            tr:nth-child(2n+1){background-color: yellow;}
+            td:first-child{width: 40%;}
+
+            tr:first-child{border-bottom: double red;}
+
+            /* table의 직계자식을 명시적으로 표시하는 것과 상관없이 tbody이다. */
+            table>:nth-child(1){border: 10px solid blue;}
+            /* 그래서 tr을 찾고싶다면 */
+            table>tr{color: aqua;}
+            table tr{color: aqua;}/* 이렇게 자손으로 찾아야 함 */
+        </style>
+    </head>
+
+    <body>
+        <table>
+            <tr>
+                <th>이름</th>
+                <th>이메일</th>
+            </tr>
+
+            <tr>
+                <td>김철수</td>
+                <td>db@@db.com</td>
+            </tr>
+    
+            <tr>
+                <td>김영희</td>
+                <td>db@@db.com</td>
+            </tr>
+    
+            <tr>
+                <td>홍길동</td>
+                <td>cc@@cc.com</td>
+            </tr>
+    
+            <tr>
+                <td>김수진</td>
+                <td>qq@@qq.com</td>
+            </tr>
+        </table>
+    </body>
+</html>

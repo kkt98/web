@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>박스모델(액자크기 및 배경)</title>
+
+        <style>
+            /* 이 영역안에서는 CSS의 문법체계 따름 */
+            p.border{
+                /* style만 적용해도 경계선이 그려짐. width는 3px */
+                border-style: solid; 
+                border-top-style: dotted;
+
+                border-width: 3px;
+                border-bottom-width: 8px;
+
+                border-color: red;
+                border-right-color: blue;
+
+                border-radius: 20px;
+                border-bottom-right-radius: 0px;
+                border-top-left-radius: 0px;
+
+                border: 30px solid transparent;
+
+                /* 경계선 이미지 */
+                border-image-source: url("./image/border.png");
+                border-image-slice: 30 30; /*높이,너비*/
+                border-image-repeat: round;
+
+                /* 요소 크기 : 블럭요소만 가능함 */
+                width: 70%;
+                height: 400px;
+
+                /* 가운데 정렬 */
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            /* 인라인요소는 width, height 이 안됨(단, img, input 요소같은 inline-block요소는 적용가능) */
+            a{background-color: red; width: 300px;}
+            em{background-color: green; width: 100%;}
+
+            img{width: 500px; border: 1px solid black;}
+            input{width: 100%; background-color: aqua;}
+
+            /* 마진연습 */
+            /* 마진은 겹쳐짐 */
+            .margin #p1{background-color: red; height: 50px; margin: 0px; margin-bottom: 10px;}
+            .margin #p2{background-color: green; height: 50px; margin: 0px; margin-top: 15px;}
+
+            /* 심지어 마이너스 마진도 있음.. 요소가 겹쳐짐 */
+            .margin #p1{background-color: red; height: 50px; margin: 0px;}
+            .margin #p2{background-color: green; height: 50px; width: 50%; margin: 0px; margin-top: -20px;}
+
+            /* background 연습 */
+            #bg{
+                background-color: green;
+                background-image: url("./image/image.png");
+                background-size: 200px 100px;
+
+                background-repeat: repeat; /*default*/
+                background-repeat: repeat-x;
+                background-repeat: no-repeat;
+
+                background-position: center;
+                background-position: top right;
+
+                background: greenyellow url("./image/image.png") no-repeat center;
+
+                margin: 20px;
+                padding: 30px;
+            }
+
+            /* 배경이미지의 붙어있는 위치설정 */
+            #attach{
+                width: 60%;
+                height: 300px;
+                border: 2px solid blue;
+                overflow: scroll;
+
+                margin-left: auto; margin-right: auto;
+
+                background-image: url("./image/image.png");
+                background-size: 200px 100px;
+                background-repeat: no-repeat;
+                background-position: center;
+
+                background-attachment: scroll; /*default : 요소의 스크롤을 따라 움직임. 마치 요소에 붙은 배경같은 느낌*/
+                background-attachment: local; /*콘텐츠의 배경에 붙은 느낌*/
+                background-attachment: fixed; /*요소위치와 상관없이 브라우저의 붙어있음.*/
+
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+        <!-- 경계선 / 요소크기 / 중앙정렬 -->
+        <p class="border">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem recusandae animi quod quas harum repellendus doloribus amet dolorum magnam delectus facilis, ratione inventore vitae cum! Autem excepturi dolorem doloremque dolor.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae odio aliquam, commodi tempora, ea accusamus nam voluptatum quod neque voluptas minus vero porro veniam recusandae, voluptate aperiam quibusdam fugiat aspernatur.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dicta consectetur accusamus, repudiandae et ducimus temporibus ipsa, totam eveniet aut libero, vel nulla at veniam nemo explicabo ab doloremque vitae.
+        </p>
+
+        <a href="">NAVER</a>
+        <em>Hello world</em>
+
+        <img src="./image/back.jpg" alt="back image">
+        <input type="text" name="">
+
+        <hr>
+
+        <div class="margin">
+            <p id="p1">P#1</p>
+            <p id="p2">P#2</p>
+        </div>
+
+        <p id="bg">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel iure ea nobis quasi, dicta optio asperiores voluptas animi reprehenderit esse voluptatem nisi debitis, natus hic sapiente deleniti distinctio perferendis saepe.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae repellat minima molestiae dolore, saepe mollitia ad esse totam exercitationem natus, cum ab omnis necessitatibus enim, voluptas dolorem provident illo amet!
+        </p>
+
+        <p id="attach">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa temporibus cumque neque iure assumenda nam nostrum omnis, nobis sint ut aut minus repellat. Repellat deserunt, quia molestias facilis ducimus beatae.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde eos enim a, suscipit sequi, dolorum perspiciatis quos, asperiores delectus esse temporibus! Expedita ut est quas sint placeat aliquam tempore explicabo.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quibusdam possimus magni modi aut? Ut, doloribus ratione vero explicabo quidem soluta praesentium iusto non similique porro, quia nam dolorum. Repudiandae.
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique amet, maiores blanditiis laborum libero quaerat obcaecati distinctio omnis vitae consectetur voluptatem perspiciatis quos facere maxime ducimus nam deserunt? Sequi, magni.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam libero repudiandae at dolor nulla reiciendis velit magnam quis totam ullam, enim necessitatibus non nemo consequuntur unde quae, repellat iure inventore.
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat, reiciendis maiores quos maxime libero natus voluptas quibusdam aliquam magni neque id, voluptatem et vel molestiae atque dolores. Quidem, sed aliquam.
+        </p>
+    </body>
+</html>

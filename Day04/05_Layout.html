@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>Layout test. display 속성</title>
+
+        <style>
+            #aa{display: inline;}
+            #aa{display: inline; width: 300px;}
+            #aa{display: inline-block; width: 300px;}
+            .bb{display: block;}
+            
+            li{display: inline; margin-right: 20px;}
+            li#cc{display: none;}
+        </style>
+    </head>
+
+    <body>
+        <!-- display속성 -->
+        <p id="aa">Hello world</p>
+        <a href="">Good day</a>
+        <strong>Good morning</strong>
+        <img src="./image/image.png" alt="" class="bb">
+
+        <hr>
+
+        <ul>
+            <li>aa</li>
+            <li id="cc">bb</li>
+            <li>cc</li>
+        </ul>
+
+        <hr>
+
+        <!-- 블럭요소와 인라인요소를 중첩으로 사용할 떄 조심할 점. -->
+
+        <!-- 블럭요소안에 다른 블럭요소를 넣을 수 있음 -->
+        <div style="background-color: tomato; border: solid; padding: 5px;">Nice <p>aaaa</p> world</div>
+
+        <!-- 인라인요소 안에 블럭요소를 넣으면 부보자식관계가 이상해짐 [사용하지 않는것을 권장] -->
+        <span style="background-color: teal; border: solid; padding: 5px;">Nice <p>aaaa</p> world</span>
+
+        <!-- 블럭요소안에 같은 블럭요소를 넣으면? 이것도 이상해짐 -->
+        <p style="background-color: lawngreen; border: solid; padding: 5px;">Nice <p>aaaa</p> world</p>
+        <h1>Nice <h1>aaaa</h1> world</h1>
+    </body>  
+</html>

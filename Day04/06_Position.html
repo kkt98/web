@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Position style</title>
+
+    <style>
+        #aaa{
+            position: relative; /* absolute position을 가진 자식뷰를 기준점으로 주기위해 */
+            background-color: black;
+        }
+
+        #p1{
+            width: 200px;
+            height: 50px;
+            background-color: cyan;
+        }
+        #p2{
+            position: static; /* default : 원래 놓여질 위치에 그대로 놓여짐 */
+            position: relative; /* 원래 놓여질 위치를 기중으로 위치설정속성에 의해 위치 조정 */
+            position: absolute; /* 문서의 시작점(좌상단)을 기준으로 위치를 설정 */
+            /* 만약 absolute position일때 문서의 시작점이 아니라 부모요서의 시작점(좌상단)을 기준으로 하고 싶다면 */
+            /* 부모요소의 position이 static이 아니면 됨 */
+            position: fixed; /* 윈도우 창을 기준으로 위치설정 */
+
+            /* 위치 설정 속성 [top, bottom, left, right] - static position에서는 사용 불가능 */
+            left: 50px;
+            top: 30px;
+
+            width: 200px;
+            height: 50px;
+            background-color: yellow;
+        }
+        #p3{
+            width: 200px;
+            height: 50px;
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Position 속성 연습</h2>
+    <hr>
+
+    <div id="aaa">
+        <p id="p1">block #1</p>
+        <p id="p2">block #2</p>
+        <p id="p3">block #3</p>
+    </div>
+    
+</body>
+</html>
