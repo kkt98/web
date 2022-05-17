@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+
+        <style>
+            #container{
+                display: flex;
+            }
+
+            #container>div{
+                background-color: dodgerblue;
+                color: white;
+                width: 100px;
+                margin: 10px;
+                text-align: center;
+                line-height: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>The flex-shrink property</h1>
+
+        <div id="container">
+            <div>1</div>
+            <div>2</div>
+            <div style="flex-shrink: 0;">3</div>
+            <div>4</div>
+            <div>5</div>
+            <div style="flex-shrink: 1;">6</div>
+            <div>7</div>
+            <div>8</div>
+            <div style="flex-shrink: 2;">9</div>
+            <div>10</div>
+
+        </div>
+    </body>
+</html>

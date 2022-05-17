@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Shop</title>
+
+    <!-- 외부 스타일 시트 연결 -->
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    
+    <header>
+        <h1>
+            <a href="./index.html">
+                <img src="./image/shop.png" alt="Shop logo" width="50" height="50">WEB SHOP
+            </a>
+        </h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./news.html">News</a></li>
+            <li><a href="./myaccount.html">My Account</a></li>
+            <li><a href="./contacts.html">Contacts</a></li>
+        </ul>
+    </nav>
+
+    <aside id="category">
+        <h4>카테고리</h4>
+        <ul>
+            <li><a target="#aa" href="./computer.html">컴퓨터</a></li>
+            <li><a target="#aa" href="./clothing.html">의류</a></li>
+            <li><a target="#aa" href="./music.html">음악</a></li>
+            <li><a target="#aa" href="./movie.html">영화</a></li>
+            <li><a target="#aa" href="">스포츠/레저</a></li>
+            <li><a target="#aa" href="">가구/인테리어</a></li>
+            <li><a target="#aa" href="">식품</a></li>
+        </ul>
+    </aside>
+
+    <section id="main">
+        <article>
+            <iframe name="aa" src="./computer.html" frameborder="0" width="450" height="500"></iframe>
+        </article>
+    </section>
+
+    <aside id="shopcartlogin">
+        <div id="shopcart">
+            <h4>Shopping Cart</h4>
+            현재 쇼핑카트에 물품이 없습니다.
+            <a href="./shopcart.html">쇼핑카트 보기</a>
+        </div>
+
+        <div id="login">
+            <h4>Log in</h4>
+            <form action="" method="post">
+                아이디
+                <input type="text"> <br>
+                비밀번호
+                <input type="text"> <br>
+
+                <input type="submit" value="로그인">
+
+                <input type="reset" 초기화> 
+
+                <br>
+                
+                <a href="./register.html" target="_blank">회원가입</a>
+                <a href="./비밀번호 분실"></a>
+            </form>
+        </div>
+    </aside>
+
+    <footer>
+        Copyright &copy; 20022 mrhi web shop
+    </footer>
+
+</body>
+</html>

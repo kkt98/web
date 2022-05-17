@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>z-index</title>
+
+        <style>
+            #b1{
+                position: absolute;
+                top: 0px; left: 0px;
+                width: 100px; height: 100px;
+                background-color: blue;
+                z-index: 3;
+            }
+
+            #b2{
+                position: absolute;
+                top: 30px; left: 30px;
+                width: 100px; height: 100px;
+                background-color: yellow;
+                z-index: 0;
+            }
+
+            #b3{
+                position: absolute;
+                top: 60px; left: 60px;
+                width: 100px; height: 100px;
+                background-color: green;
+                z-index: -1;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="b1">box #1</div>
+        <div id="b2">box #1</div>
+        <div id="b3">box #1</div>
+    </body>
+</html>

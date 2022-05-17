@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Semantic Tag layout</title>
+
+    <style>
+        body{
+            background-color: #efe5d0;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            margin: 0px;
+        }
+
+        header{
+            background-color: #e3afed;
+            margin: 0px;
+            text-align: center;
+            padding: 10px 0px;
+        }
+
+        nav{
+            display: table-cell;
+            padding: 15px;
+            background-color: #ffd800;
+        }
+
+        section{
+            display: table-cell;
+            background-color: yellow;
+            padding: 15px;
+            width: 100%;
+        }
+
+        footer{
+            background-color: #954b4b;
+            color: white;
+            text-align: center;
+            padding: 10px 0px;
+            margin: 0px 0px 0px 0px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <!-- 시멘틱 태그 사용 -->
+        <header>
+            <h1>My bloge Page</h1>
+        </header>
+
+        <nav>
+            <h2>Links</h2>
+            <ul>
+                <li><a href="">W3C</a></li>
+                <li><a href="">naver</a></li>
+                <li><a href="">google</a></li>
+
+                <figure>
+                    <img src="./image/lion.png" alt="lion" width="85" height="85">
+                    <figcaption>lion</figcaption>
+                </figure>
+            </ul>
+        </nav>
+
+        <section>
+            <article>
+                <h3>안드로이드 네이티브 앱</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum iure ab fuga totam necessitatibus tempora cumque voluptates, voluptas est nulla sit aut suscipit tenetur veniam? Dolorum iusto autem adipisci incidunt.</p>
+            </article>
+
+            <article>
+                <h3>웹 앱</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, necessitatibus nulla ea, aut aspernatur ex veniam dolores corporis quia sint vitae incidunt sequi dolorem tenetur iure, delectus magni facere facilis.</p>
+            </article>
+
+            <article>
+                <h3>하이브리드 앱</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil hic tempore est atque porro deserunt rerum pariatur blanditiis quibusdam, excepturi aspernatur magni velit delectus. Officiis dolorem blanditiis sequi consequatur laboriosam.</p>
+            </article>
+        </section>
+
+        <footer>
+            <h4>Copyright &copy; mrhi 2022</h4>
+        </footer>
+    </div>
+</body>
+</html>

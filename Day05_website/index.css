@@ -1,0 +1,95 @@
+/* 모든요소들의 마진, 패딩 없애기 */
+*{margin: 0px; padding: 0;}
+
+/* 화면에 너무 붙어있어서 */
+body{
+    padding: 30px;
+    background-color: #f3f1f9;
+}
+
+/* 제목줄 영역 */
+header{
+    padding: 5px 5px;
+}
+
+header a{text-decoration: none; color: #333333;}
+
+/* nav 메뉴영역 */
+nav{margin-top: 10px; margin-bottom: 20px;}
+
+nav ul{
+    list-style: none;
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
+    text-align: center;
+}
+
+nav ul li{
+    display: inline;
+    letter-spacing: .3rem;
+    margin-left: 2rem;
+}
+
+nav ul li a{
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+    line-height: 3rem;
+}
+
+nav ul li a:hover{text-decoration: underline;}
+
+/* 왼쪽 사이드 메뉴 : 카테고리 */
+aside#category{
+    float: left;
+    width: 10rem;
+    margin-right: 1rem;
+}
+
+#category ul{list-style: none;}
+
+#category ul li{
+    background-color: #3f3f3f;
+    border-bottom: 1px solid black;
+}
+
+#category ul li a{
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 5px 10px;
+}
+
+#category ul li a:hover{background-color: red;}
+
+#category h4{padding: 5px;}
+
+/* 본문 영역을 aside의 높이로 띄우기 그래서 옆으로 놓여지게 */
+#main{
+    float: left;
+    width: 460px;
+}
+
+/* 쇼핑카트와 로그인 aside영역 */
+aside#shopcartlogin{
+    float: right;
+    padding: 10px;
+    width: 12rem;
+}
+
+#shopcartlogin #shopcart{
+    margin-bottom: 30px;
+}
+
+#shopcartlogin #login input{
+    margin-bottom: 5px;
+}
+
+/* footer영역 */
+footer{
+    clear: both;
+    background-color: #333333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0px;
+}

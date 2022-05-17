@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Flex style</title>
+
+        <style>
+            body{border: 1px dotted red;}
+
+            div#container>div{
+                background-color: aqua;
+                padding: 20px;
+                margin: 10px;
+                /* width: 100px; */
+            }
+
+            /* flex style 적용 : 부모요소가 자식요소의 배치방법을 결정 */
+            #container{
+                display: flex; /* 자식요소의 너비는 wrap이 되고 옆으로 배치됨. 마치 inline-block처럼 */
+
+                /* 기본적으로 자식요소들은 가로방향 배치 */
+                /* 1) 옆으로 배치되다가 만약 부모 너비보다 배치될 요소가 많다면 */
+                /* 넘어섰을때 다음 줄로 내릴지 여부를 설정할 수 있음. */
+                flex-wrap: wrap;
+                flex-wrap: wrap-reverse;
+                flex-wrap: nowrap; /* default */
+
+                /* 2) 자식배치 방향 [ 수평:row, 수직:column ] */
+                flex-direction: column; /* 수직 */
+                flex-direction: column-reverse; /* 수직 - 아래~위 */
+
+                flex-direction: row; /* defult(수평) */
+                flex-direction: row-reverse; /* defult(수평) - 오른쪽~왼쪽 */
+                
+                /* 3) -direction, -wrap 속성을 축약형으로 쓰는 속성 */
+                flex-flow: row wrap;
+                flex-flow: wrap column; /* 순서상관X */
+
+                /* 기본상태 */
+                flex-flow: row nowrap;
+
+                /* 정렬 : 개수가 적어야 이해가 용이함 */
+                /* 정렬에 사용하는 속성이 2가지 */
+
+                /* 1. justify-content : 배치방향과 같은 축의 정렬 */
+                /* 1.1 수평배치(row) 일때는 수평정렬 */
+                flex-direction: row;
+                justify-content: flex-start; /* 기본 defult */
+                justify-content: center;
+                justify-content: flex-end;
+                justify-content: space-between;
+                justify-content: space-around;
+                justify-content: space-evenly;
+
+                /* 1.2 수직배치(column) 일때는 수직정렬 */
+                flex-direction: column;
+                justify-content: flex-start;
+                justify-content: center;
+                justify-content: flex-end;
+                justify-content: space-between;
+                justify-content: space-around;
+                justify-content: space-evenly;
+
+                /* 2. align-items : 배치방향과 교차되는 축의 정렬 */
+                /* 2.1 수평배치(row) 일때는 수직 정렬 */
+                flex-direction: row;
+                align-items: flex-start;
+                align-items: center;
+                align-items: flex-end;
+                align-items: stretch; /* defult */
+                align-items: baseline; /* 요서들의 box가 아니라 content의 아랴쪽을 기준으로 정렬 */
+
+                /* 2.2 수직배치(column) 일때는 수평 정렬 */
+                flex-direction: column;
+                align-items: flex-start;
+                align-items: center;
+                align-items: flex-end;
+                align-items: stretch; /* defult - 혹시 가로너비가 늘어나지 않는다면 그 요소에 width가 있음 */
+
+                height: 400px;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <!-- flex style : 자식요소들의 배치방법을 부모요소에서 결정하는 스타일방식 -->
+        <div id="container">
+            <div>aa</div>
+            <!-- <div style="font-size: 30px;">bb</div>      -->
+            <div>bb</div>     
+            <div>cc</div>
+
+            <!-- 개수가 더 많다면 -->
+            <!-- <div>aa</div>
+            <div>bb</div>     
+            <div>cc</div>
+            <div>aa</div>
+            <div>bb</div>     
+            <div>cc</div>
+            <div>aa</div>
+            <div>bb</div>     
+            <div>cc</div> -->
+        </div>
+
+        <hr>
+        <hr>
+
+        <!-- 제목 영역 만들때 이 flex스타일이 아주 쉽게 배치가 가능함 -->
+        <div id="header">
+
+            <h2>TITLE</h2>
+            <p>This is flex style</p>
+
+        </div>
+
+        <style>
+
+            div#header{
+                height: 200px;
+                background-color: blueviolet;
+                color: white;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+        </style>
+
+        <hr>
+        <hr>
+
+        <div id="container2">
+            <div id="item1">aaa</div>
+            <div id="item2">bbb</div>
+            <div id="item3">ccc</div>
+        </div>
+
+        <style>
+            #container2{
+                display: flex;
+                flex-direction: row;
+            }
+
+            #container2>div{
+                background-color: aqua;
+                padding: 20px;
+                margin: 10px;
+            }
+
+            /* flex의 스타일속성 중 자식요소에게 설정하는 속성들 */
+            /* 1) order - 배치순서를 변경할 수 있음 */
+            #item1{order: 3;}
+            #item2{order: 1;}
+            #item3{order: 2;}
+
+            /* 2) flex-grow : 넓이를 상대적인 값의 비례로 지정 [android의 weight과 같은 역할] */
+            #item1{order: 1; flex-grow: 1;}
+            #item2{order: 2; flex-grow: 1;}
+            #item3{order: 3; flex-grow: 6;}
+            
+            /* 3) flex-shrink : 나머지 flex 아이템들과 비교하여 얼마나 너비를 줄일까? 에 대한 설정 */
+            /* 별도 실습 */
+
+            /* 4) flex-basis(기반) : 요소의 초기 길이를 지정함 : 공간이 부족하면 이 넓이부터 줄임 */
+            #item1{order: 1; flex-grow: 0;}
+            #item2{order: 2; flex-grow: 0; flex-basis: 200px;}
+            #item3{order: 3; flex-grow: 0; flex-basis: 300px;}
+
+            /* 5) flex : -grow, -shrink, -basis 의 축약형 속성 */
+            #item1{flex: 0 0 0px;}
+            #item2{flex: 1 0 0px;}
+            #item3{flex: 1 0 0px;}
+
+            /* 6) 자식요소만의 정렬 */
+            #container2{
+                flex-direction: row;
+                height: 300px;
+                align-items: flex-start;
+            }
+
+            /* #container2>div{height: 100px;} */
+
+            #item2{align-self: center;}
+            #item3{align-self: flex-end;}
+
+            /* 당연히 justify-self 도 있음 */
+        </style>
+
+    </body>
+</html>

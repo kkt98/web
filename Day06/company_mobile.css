@@ -1,0 +1,63 @@
+*{margin: 0; padding: 0;}
+
+ul{list-style: none;}
+a{text-decoration: none;}
+
+header{
+    width: 100%;
+    background-color: #2d3a4b;
+    position: relative; /* absolute position을 사용하는 자식요소의 기준점을 이 header로 하고 싶다면 static positon이 아니면 됨 */
+}
+
+#logo{
+    padding-top: 30px;
+    padding-left: 30px;
+}
+
+#top_menu{
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    color: white;
+}
+
+#top_menu a{color: white; font-size: 14;}
+
+nav{
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+nav li{
+    line-height: 2.5rem;
+    border-bottom: 1px solid #223344;
+}
+
+nav li a{
+    color: white;
+    display: block;
+    text-align: center;
+}
+
+nav li a:hover{
+    background-color: white;
+    color: black;
+}
+
+#content #main img{width: 100%; border: 1px solid gray;}
+
+#content #banner li{
+    border-bottom: 1px solid gray;
+}
+
+#content #banner li a{
+    display: block;
+    text-align: center;
+}
+
+footer{
+    padding: 0px 10px;
+    
+}
+
+footer img{ width: 100%;}

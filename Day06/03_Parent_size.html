@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Parent size</title>
+
+    <style>
+        *{border: 1px dotted red;}
+
+        p{padding: 20px; margin: 10px;}
+
+        a{padding: 10px; margin: 10px;}
+
+        em{padding: 10px;}
+        strong{padding: 10px;}
+
+        img{padding: 5px;}
+        input{margin: 10px;}
+    </style>
+</head>
+<body>
+    <!-- 부모 box의 height(기본은 wrap)이 언제나 자식의 box높이를 감싸지 않을 수 있음 -->
+
+    <!-- 블럭요서안에 블럭요소가 있을때 부모의 높이는 자식의 높이를 감쌀정도 -->
+    <div>
+        <p>Hello</p>
+    </div>
+
+    <!-- 블럭요소안에 인라인요소가 자식을 있다면 자식box의 높이를 감싸지 않을 수 있음 -->
+    <hr>
+
+    <div style="border: 1px dotted blue;">
+
+        <a href="">Nice</a>
+        <em>Good</em>
+        <strong>HTML</strong>
+
+        <!-- 인라인 중에서 inlin-bloc요소는 블럭의 특징이 있기애 -->
+        <img src="./image/logo.png" alt="">
+        <input type="text">
+
+    </div>
+</body>
+</html>
