@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>Event handle</title>
+
+        <script>
+
+            //JS에서 이벤트를 처리하는 3가지 방법
+            //1. html에서 요소에 속성으로 콜백함수 지정. <button onclick="aaa()">
+            //2. 자바스크립트에서 요소를 찾아와서 이벤트콜백 속성에 함수 지정
+            //3. 요소의 특정 이벤트리스너를 추가하는 메소드를 통해 처리.
+
+            // onload 이벤트 - 문서의 로드가 모두 완료되면 발동하는 이벤트
+
+            //body안에 있는 요소 제어
+            document.getElementById('aa').innerHTML = "Hello" //처리 안됨
+            //아직 body요소가 만들어지기 전 이라서.
+
+            //1.html요소에 속성으로 이벤트에 발동하는 함수지정 방법
+            function loaded(){
+                document.getElementById('aa').innerHTML = "Hello"
+
+                //2. onclick이벤트를 자바스크립트에서 처리하기
+                document.getElementById('aa').onclick = function(){
+                    // alert('click Hello')
+                    document.getElementById('aa').innerHTML += " Web"
+                }
+
+                //doubleclick 이벤트 처리하기
+                // document.getElementById('aa').ondblclick = function(){
+                //     alert("double click")
+                // }
+
+                //3. 요소의 이벤트 리스너를 추가 메소드
+                document.getElementById('aa').addEventListener('dblclick', function(){
+                    alert('double click')
+                })
+            }
+
+        </script>
+    </head>
+    <body onload="loaded()">
+
+        <!-- 1) 이벤트 핸들러 적용 연습 (onload이벤트) -->
+        <h2 id="aa"></h2>
+
+        <hr>
+
+        <!-- 2) input요소의 입력필드값 변경이벤트 -->
+        <input type="text" id="in1" onfocus="aaa()">
+        <input type="text" id="in2" onblur="bbb()" onchange="ccc()">
+        <script>
+            function aaa(){
+                document.getElementById('in1').value = "Nice"
+            }
+
+            function bbb(){
+                alert('blur')
+            }
+
+            function ccc(){
+                alert('change')
+            }
+        </script>
+
+        <hr>
+        <!-- 입력요소에 값을 입력하고 필드를 벗어나면 자동으로 대문자로 변경해주는 기능(like 국민은행 로그인) -->
+        <input type="text" placeholder="아이디" id="in3" onchange="changeUp()">
+        <script>
+            function changeUp(){
+                var v = document.getElementById('in3').value
+                document.getElementById('in3').value = v.toUpperCase()
+            }
+        </script>
+
+        <hr>
+
+        <!-- 마우스 이벤트 -->
+
+        <!-- 마우스 over, out, move -->
+        <div onmousemove="move(this)" onmouseout="out(this)" onmouseover="over(this)" style="width: 200px; height: 100px; background-color: yellow;"></div>
+        <script>
+            function over(e){
+            e.style.backgroundColor="lightgreen"
+            e.style.border="2px solid red"
+            }
+
+            function out(e){
+                e.style.backgroundColor="yellow"
+                e.style.border=""
+            }
+
+            var a=0
+            function move(e){
+                a++;
+                e.innerHTML=a+""
+
+            }
+        </script>
+
+        <!-- 마우스 좌표 얻어보기 -->
+        <div id="kk" style="width: 300px; height: 100px; background-color: aqua;"></div>
+        <script>
+            document.getElementById('kk').addEventListener('mousemove', function(event){
+                //이벤트 리스너 함수의 파라미터는 자동으로 전달되어 오며
+                //그 파라미터는 이벤트의 정보를 가지고 있는 객체임
+                var s="모니터 기준좌표 : " + event.screenX + ", " + event.screenY + "<br>"
+                s += "브라우저 기준좌표 : " + event.clientX + ", " + event.clientY + "<br>"
+                s += "영역을 기준좌표 : " + event.offsetX + ", " + event.offsetY + "<br>"
+
+                document.getElementById("kk").innerHTML = s
+            })
+        </script>
+
+        <!-- 마우스 다운 & 업 -->
+        <button id="btn">Button</button>
+        <script>
+            var btn = document.getElementById("btn")
+
+            //이벤트리스너 추가
+            btn.addEventListener('mousedown', function(){
+                btn.style.backgroundColor="#FF0000FF" //RGBA
+                btn.style.color="#FFFF00FF"
+                btn.style.fontSize="2rem"
+            })
+
+            //이벤트콜백 함수를 별도의 변수에 넣어서 리스너에 추가
+            var up = function(){
+                btn.style.backgroundColor="" //defult색
+                btn.style.color=""
+                btn.style.fontSize="0.5rem"
+            }
+            
+            btn.addEventListener('mouseup', up)
+
+        </script>
+    </body>
+</html>

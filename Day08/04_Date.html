@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>내장객체 : Date</title>
+
+        <script>
+
+            //JS의 유용한 내장 생성자 함수들 [Date, Number, String, Math, Array]
+            //내장되어 이미 설계되어 있는 생성자 함수들이니 사용할떄 new 만 하면 됨
+
+            //1.Date 생성자 함수
+            var a = new Date()
+            document.write(a + "<br>") //객체의 .toSting()이 자동 발동함
+            document.write(typeof(a) + "<br>") //모든객체의 자료형은 object
+
+            //Date 생성자함수의 주요기능 메소드들...
+            document.write(a.toDateString() + "<br>") //날짜만
+            document.write(a.toLocaleString() + "<br>") //지역 날짜와 시간
+            document.write(a.getYear() + "<br>") //1900년부터 1씩 숫자를 올린 연도
+            document.write(a.getFullYear() + "<br>") //2022년
+            document.write(a.getMonth() + "<br>") //0~11 (1~12월)
+            document.write(a.getDate() + "<br>") //일
+            document.write(a.getHours() + "<br>") //시
+            document.write(a.getMinutes() + "<br>") //분
+            document.write(a.getSeconds() + "<br>") //초
+            document.write(a.getTime() + "<br>") //1970-01-01 부터 ms마다 1씩 증가한 숫자
+
+            //set도 가능함
+            var b = new Date()
+            document.write(b.toLocaleString() + "<br>")
+            b.setFullYear(2018)
+            document.write(b.toLocaleString() + "<br>")
+
+            //생성자함수의 파라미터로 날짜 지정 가능함
+            var c = new Date(2025, 07, 23) //2025년 8월 23일
+            document.write(c.toLocaleString() + "<br>")
+            
+            var d = new Date("Thu Jun 23 2022 10:05:00 GMT+0900")
+            document.write(d.toLocaleString() + "<br>")
+
+            var e = new Date("2022. 6. 23")
+            document.write(e.toLocaleString() + "<br>")
+
+            var f = new Date(0) //1970/01/01 09:00 ms 값 지정
+            document.write(f.toLocaleString() + "<br>")
+
+            //두 날짜사이를 비교
+            var aa = new Date("2021. 12. 17")
+            var bb = new Date()
+            var diff = bb.getTime() - aa.getTime() //밀리초 계산
+            diff = bb-aa //이렇게 Date객체의 - 을 하면 자동 getTime()으로 계산함
+
+            document.write("두 날짜 차이 : " + diff + "<br>") 
+
+            //밀리초를 일로 변환
+            var sec = diff/1000 //ms -> s
+            var min = sec/60 //s -> m
+            var hour = min/60 //m -> h
+            var day = hour/24 //시 -> 일
+
+            //소수점 제거
+            day = Math.floor(day)
+
+            document.write("두 날짜 차이 : " + day + "일" + "<br>") 
+
+
+        </script>
+
+    </head>
+    <body>
+        
+    </body>
+</html>

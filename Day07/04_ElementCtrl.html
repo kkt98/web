@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Element Control</title>
+
+    <script>
+        function cal(){
+            var in1 = document.getElementById('in1')
+            var in2 = document.getElementById('in2')
+
+            var a = in1.value
+            var b = in2.value
+
+            var c = a+b
+            var c = parseInt(a) + parseInt(b)
+
+            var result = document.getElementById('result')
+            result.value = c
+        }
+
+        function changeColor(){
+            var e = document.getElementById('aa')
+            e.style.backgroundColor='yellow'
+            e.style.color = 'red'
+            e.style.border = 'solid'
+        }
+    </script>
+
+</head>
+<body>
+    
+    <input type="text" id="in1"> <br>
+    <input type="text" id="in2"> <br>
+    <button onclick="cal()">계산</button> <br>
+    <input type="text" id="result" size="30">
+
+    <hr>
+
+    <!-- HTML요소의 특정 스타일 변경 -->
+    <h2 id="aa">This is Heading</h2>
+    <button onclick="changeColor()">Change background color</button>
+
+    <hr>
+
+    <!-- 이미지 변경 -->
+    <img src="./image/elephont.png" alt="elephont" width="30%">
+    <butto onclick="changeImage">Change image</butto>
+
+    <script>
+        function changeImages(){
+            var es = document.getElementById("img") //여러개를 찾으 수 있기에 배열로 리턴
+            es[0].src == "./"
+        }
+    </script>
+
+    <hr>
+
+    <!-- HTML과 JS가 혼재되어 사용되는경우도 많다 -->
+    <table border="1" style="text-align: center;">
+        <tr>
+            <td>numbers</td>
+        </tr>
+
+        <script>
+            //이 영역안에서는 JS문법체계를 따름
+            for(var i=1; i<10; i++){
+                document.write('<tr><td>' + i + '</td></tr> ')
+            }
+        </script>
+
+    </table>
+
+</body>
+</html>

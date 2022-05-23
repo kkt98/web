@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Number</title>
+
+    <script>
+        //2. Number 내장 생성자 함수 - [Wrapper클래스 와 비슷]
+
+        //수치형 number와 다름
+        var a = 10 //number type
+        var b = new Number(10) //object type
+
+        document.write(typeof(a) + "<br>")
+        document.write(typeof(b) + "<br>")
+        document.write(a==b + "<br>") //true
+        document.write(a===b + "<br>") //false
+
+        document.write("<br>")
+        //Number객체의 유용한 기능들(메소드들)
+        var num = new Number(123.456)
+
+        //1) 지수표현법
+        document.write(num.toExponential() + "<br>")
+        document.write(num.toExponential(2) + "<br>") //소수점 아래 2자리
+
+        //2) 소수점 자르기
+        document.write(num.toFixed() + "<br>")
+        document.write(num.toFixed(2) + "<br>") //소수점 아래 2자리
+
+        //3) 진법 변환 표기 (string으로 반환)
+        var num = new Number(10)
+        document.write(num.toString() + "<br>") //10진법으로 출력
+        document.write(num.toString(16) + "<br>") //16진법으로 출력
+        document.write(num.toString(8) + "<br>") //8진법으로 출력
+        document.write(num.toString(2) + "<br>") //2진법으로 출력
+
+        //수치형은 자동으로 Number객체로 wrapping됨. -auto boxing
+        var n = 255
+        document.write(n.toString(16) + "<br>")
+
+        //수치형 상수값들도 자동 wrapping됨 단!! 실수형만 가능함
+        document.write(10.54321.toFixed(2) + "<br>")
+        //document.write(10.toString(2) + "<br>") //정수형은 불가
+        document.write(10.0.toString(2) + "<br>")
+
+        //두 수를 비교할때 특정자리수 까지만 같은지 비교할때 활용
+        var n1 = 3.141414
+        var n2 = 3.141292
+        document.write(n1 == n2 + "<br>")
+        document.write(n1.toFixed(3) == n2.toFixed(3))
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

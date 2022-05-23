@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>variable & data type
+
+    </title>
+
+    <!-- 내부 스크립트 -->
+    <script>
+
+        //자료형의 종류
+        // 1. 수치형 : number - 정수, 실수
+        // 2. 문자형 : string - 한문자, 문자열 '', "" 동일함
+        // 3. 논리형 : boolean - true, false
+        // 4. 객체형 : object, 내장, 함수, new키워드 사용
+
+        //변수선언
+        var a;
+        a=10;
+        document.write(a);
+        document.write("<br>")
+
+        var b="aaa";
+        document.write(b);
+        document.write("<br>")
+
+        var c = true
+        document.write(c)
+        document.write("<br>")
+
+        //여기까지 자료형//
+        
+        var d= new Date()
+        document.write(d)
+        document.write("<br>")
+
+        var e
+        document.write(e) //undefined
+        document.write("<br>")
+
+        document.write('<hr>')
+
+        //자료형 확인해보기
+        document.write(typeof(a) + "<br>")
+        document.write(typeof(b) + "<br>")
+        document.write(typeof(c) + "<br>")
+        document.write(typeof(d) + "<br>")
+        document.write(typeof(e) + "<br>")
+
+        //변수는 값을 변경할 수 있기에 변수에 값이 대입될떄 자료형이 결정됨
+        //또한 다른 자료형으로 변수의자료형이 변경될 수도 있음.[동적 타입언어]
+        document.write('<hr>')
+
+        var g = 10
+        document.write(g)
+        document.write('<br>')
+
+        g = "kim" //number -->string
+        document.write(g)
+        document.write('<br>')
+
+        //함수도 변수에 저장이 가능함
+        var h = function(){
+            document.write("hhh출력")
+            document.write('<br>')
+        }
+
+        document.write(h) //함수가 출력됨 - 함수가 실행된 것이 아님
+        document.write('<br>')
+
+        //함수를 호출하려면 함수를 가진 변수명이 함수이름이 됨
+        h()
+
+        document.write(typeof(h))
+        document.write('<br>')
+
+        //함수를 변수에 대입할 수 있고
+        //변수는 변수의 값을 다른 변수에 전달할 수 있으니
+        //함수를 가진 변수도 본인의 함수를 다른 변수에 전달할 수 있음
+        var g = h
+        g()
+        //이런식이기에 함수를 파라미터나 리턴으로 사용할 수 도 있음.
+
+        //기본적으로 JS는 모든 변수들은 객체참조형임.
+        //그래서 string(문자형)이라는 기본형 자료형도 객체로 되어있기에
+        //멤버를 보유하고 있음
+        var s = "Hello"
+        document.write(s.length)
+        document.write('<br>')
+
+        document.write(s.charAt(1))
+        document.write('<br>')
+
+        document.write(s.replace("l", "p")) //만약 여러개면 1개만 바뀐다.
+        document.write('<br>')
+
+        //string의 멤버메소드를 실행해도 string 원본 글씨는 변경되지 않음
+
+        document.write(s.toUpperCase())
+        document.write('<br>')
+
+        //객체형중에서 사용자정의(개발자가 직접만든) 객체형
+        //객체를 생성하면서 멤버를 설게하는 방식으로 객체 생성
+        var person = {name:'sam', age:20}
+        document.write('<p>')
+        document.write("name: " + person.name + ", ")
+        document.write("age: " + person.age + "<br>")
+        document.write('</p>')
+
+        //변수값 다룰 때 특이한 것들.
+        var n = 10
+        var n //같은 이름을 가진 변수를 또만들어도 error 안남 - var키워드만 무시함
+        document.write(n)
+        document.write('<br>')
+
+        //수치형 변수값 표기법
+        var m = 3.14 //number
+        document.write(m)
+        document.write('<br>')
+
+        m = 123.5e3
+        document.write(m)
+        document.write('<br>')
+
+        m = 123.5e-3
+        document.write(m)
+        document.write('<br>')
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

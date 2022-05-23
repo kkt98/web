@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array 배열</title>
+
+    <script>
+
+        // JS에서 배열을 만드는 2가지 방법
+        //1. 리터럴 배열
+        var arr = [10,20,30]
+        document.write(arr[0] + "<br>")
+        document.write(arr[1] + "<br>")
+        document.write(arr[2] + "<br>")
+
+        document.write("<hr>")
+        //JS는 동적타입언어이기때문에 배열안에 여러자료형의 값이 가능함.
+        var arr2 = [10, "aa", true]
+        document.write(arr2[0] + "<br>")
+        document.write(arr2[1] + "<br>")
+        document.write(arr2[2] + "<br>")
+
+        document.write("<hr>")
+
+        //심지어 방번호가 틀려도 error가 아님
+        document.write(arr2[3] + "<br>") //undefined
+
+        document.write("<hr>")
+
+        //배열임에도 동적으로 요소의 개수를 변경할 수 있음.
+        document.write("배열개수 : " + arr2.length + "<br>")
+
+        arr2[5] = 100 //5번방에 값을 대입하거 3번 4번 방은 자동 추가 [값은 undefined]
+        document.write("배열개수 : " + arr2.length + "<br>") //6개
+        document.write(arr2[0] + "<br>")
+        document.write(arr2[1] + "<br>")
+        document.write(arr2[2] + "<br>")
+        document.write(arr2[3] + "<br>")
+        document.write(arr2[4] + "<br>")
+        document.write(arr2[5] + "<br>")
+
+        document.write("<hr>")
+
+////////////////////////////////////////////////////////////////////
+
+        //2. Array 객체로 배열 생성
+        var arr3 = new Array(10, "sam", false)
+        for(var i=0; i>arr3.length; i++){
+            document.write(arr3[i] + ", ")
+        }
+        document.write("<br>")
+
+        //forEach문으로 요소값 출력
+        for(var index in arr3){ //인덱스번호가 옴
+            document.write(arr3[index] + ", ")
+        }
+        document.write("<br>")
+
+        //배열객체를 먼저 만들어 놓고 나중에 요소를 추가해도 됨
+        var arr4 = new Array() //빈배열
+        arr4[0] = "apple"
+        arr4[1] = 20
+        arr4[2] = new Date()
+
+        for(var index in arr4){
+            document.write(arr4[index] + "<br>")
+
+        }
+        document.write("<hr>")
+
+        //연관배열 - '키'로 인덱스번호를 대신하는 뱌열 [마치 Map방식과 유사]
+        var aaa = new Array()
+        aaa['aa']= 10
+        aaa['bb']= 20
+        aaa['cc']= 30
+
+        document.write(aaa['aa'] + "<br>")
+        document.write(aaa['bb'] + "<br>")
+        document.write(aaa['cc'] + "<br>")
+
+        var bbb=[]
+        bbb['name']= 'sam'
+        bbb['age']= 20
+        document.write(bbb['name']+"<br>")
+        document.write(bbb['age']+"<br>")
+
+        document.write("<hr>")
+
+        //연관배열을 만들면서 요소값들을 넣고싶다면 키값지정과 함께
+        //마치 객체 생성하는 모습과 유사함
+        var ccc = {'aa':10, 'bb':20}
+        document.write(ccc['aa']+"<br>")
+        document.write(ccc['bb']+"<br>")
+
+        //사싱 JS에서 연관배열과 객체를 메모리 모습이 동일함
+        //그렇기에
+        document.write(ccc.aa + "<br>")
+        document.write(ccc.bb + "<br>")
+
+    </script>
+
+</head>
+<body>
+
+    <hr>
+
+    <!-- 연관배열이 사용되는 곳 중 하나 -->
+    <!-- HTML중에서 form요소 와 input요소들을 참조할 때 엄청 편함 -->
+    <form action="" name="aa">
+        <input type="text" name="in1"> <br>
+        <input type="text" name="in2"> <br>
+        <input type="text" name="in3"> <br>
+    </form>
+
+    <script>
+        //input요소들을 찾아오기 getElementBy 로 찾기 번거로움
+        //form요소의 input요소들은 기본적으로 document내장객체안에 멤버로 존재함
+        //여러개일 수도 있기에 배열로 만들어져 있음
+        document.forms[0][0].value = 10
+        document.forms['aa'][1].value = 20
+        document.forms['aa']['in3'].value = 30
+
+        //연관배열의 '키'를 멤버변수처럼 사용
+        document.aa['in1'].value=100
+        document.aa.in2.value = 200
+    </script>
+
+    <hr>
+
+    <!-- 2차원 배열 -->
+    <script>
+
+        //2차원배열은 1차원 배열이 여러개인 것임.
+        var nnn = new Array()
+        var n1 = [10,20,30]
+        var n2 = ['aa', 'bb', 'cc', 'dd']
+        var n3 = [true, flase, 3.14, new Date()]
+
+        nnn[0] = n1
+        nnn[1] = n2
+        nnn[2] = n3
+
+        for (var i=0; i<nnn.length; i++){ //3번
+            for(var k=0; k<nnn[i].length; k++){
+                document.write(nnn[i][k] + ", ")
+            } //3번 4번 4번
+            document.write("<br>")
+        }
+
+    </script>
+
+    
+</body>
+</html>

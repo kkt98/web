@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>Key event</title>
+
+        <script>
+            //키보드 이벤트 : keypress, keydown, keyup
+            function keypress(){
+                var keycode = window.event.keyCode //문자의 ASCII번호 - 방향키는 인식불가
+
+                document.getElementById('keycode').value = keycode
+                document.getElementById('keychar').value = String.fromCharCode(keycode)
+                document.getElementById('shiftkey').checked = event.shiftkey
+            }
+        </script>
+    </head>
+    <body onkeypress="keypress()">
+
+        <h4>아무키나 누르세요</h4>
+
+        <input type="text" id="keycode">
+        <input type="text" id="keychar">
+        <input type="checkbox" id="shiftkey">
+        
+        <hr>
+        <!-- html요소에 속성으로 이벤트 함수를 지정하는 것과 -->
+        <!-- addEventListener()메소드를 이용할때 차이점 -->
+        <!-- 함수안에서 this키워드가 서로 객체임 -->
+        <input type="text" onkeyup="aaa()">
+        <script>
+            function aaa(){
+                alert(this) //this : window객체
+            }   
+        </script>
+
+        <hr>
+        <input type="text" id="in3">
+        <script>
+            // document.getElementById('in3').addEventListener('keyup', function(){
+            //     alert(this) // this : 이벤트를 발생시키는 요소를 지칭함
+            // })
+
+            var kkk = function(){
+                //alert(this) //이벤트를 발동시킨 요소 : input - 'in3'
+                this.value = this.value.toUpperCase()
+            }
+
+            document.getElementById('in3').addEventListener('keyup', kkk)
+        </script>
+
+    </body>
+</html>

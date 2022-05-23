@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+
+        <title>Prototype</title>
+
+        <script>
+            //생성자 함수로 객체를 만들면 생성하는 객체들마다 본인들의 멤보를 별도로 가짐
+            //이때 같은 생성자 함수로 만들어진 객체들이 공유하는 멤버를 가지고 ㅇ싶을때
+            //사용하는 기술 prototype
+
+            function Person(name, age){
+                this.name = name
+                this.age = age
+            }
+            
+            //Student생성자 함루로 만든 객체가 공유하는 멤버 prototype
+            Student.prototype.schoolName = "aaa"
+
+            //prototype 메소드
+            Student.prototype.show = function(){
+                document.write("show : " + this.name + ":" + this.age)
+            }
+
+            //객체를 만들어야 사용이 가능
+            var stu = new Student("sam")
+            //stu.show()
+            document.write(stu.name + "<br>")
+            document.write(stu.schoolName + "<br>")
+
+            var stu1 = new Student("robin")
+            //stu2.show()
+            document.write(stu1.name + "<br>")
+            document.write(stu1.schoolName + "<br>")
+
+            stu.name = "kim"
+            document.write(stu.name + "<br>")
+            document.write(stu1.name + "<br>")
+
+            stu1.prototype.schoolName = "kkk"
+            document.write(stu.schoolName + "<br>")
+            document.write(stu1.schoolName + "<br>")
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

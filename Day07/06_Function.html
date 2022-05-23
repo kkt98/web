@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function 함수</title>
+
+    <script>
+
+        //함수 선언 및 호출(선언적 함수라고 부름)
+        function aaa(){
+            document.write('aaa <br>')
+        }
+
+        aaa() //함수 호출
+
+        //다른언어와 다른점 선언적 함수는 만든 순서와 상관없이 호출할 수 있음
+        bbb()
+
+        //선언적 함수는 프로그램이 실행되기전에 모두 load됨
+        function bbb(){
+            document.write("bbb<br>")
+        }
+
+        //단, 하나의 script영역안에서는 순서가 상관없지만
+        //다른 script는 순서영향을 받음
+        //저 아래 script에 있는 함수 호출해보기
+        ccc()
+
+        document.write("<br>---------END------------<br>")
+
+    </script>
+
+    <script>
+        //위 script에 있는 함수를 호출
+        bbb()
+
+        function ccc(){
+            document.write("ccc<br>")
+        }
+    </script>
+
+    <!-- 함수의 파라미터 전달하는 실습 -->
+    <script>
+        document.write('<hr>')
+        document.write('<h4>함수 파라미터 전달</h4>')
+
+        //함수 파라미터를 만들때는 var 키워드를 쓰면 에러
+        function ddd(a){
+            document.write(a+"<br>")
+        }
+
+        ddd(10)
+        ddd("kim")
+        ddd(new Date())
+
+        //만약 전달하지 않으면 -- undifined
+        ddd()
+
+        //파라미터 2개짜리
+        function eee(a,b){
+            document.write(a + ", " + b + "<br>")
+
+            //a,b에 값이 전달되어있지 않다면
+            if(a == undefined || b == undefined){
+                document.write("2개의 수를 모두 전달해주세요 <br>")
+
+                return
+            }
+
+            var c=a+b
+            document.write("덧셈결과 : " + c + "<br>")
+        }
+
+        eee(5,3)
+        eee(5)
+
+        //같은 함수를 또 만들면
+        function ddd(a){
+            document.write("똑같은 함수를 또 만들면 error아님 덮어쓰기 됨 <br>")
+        }
+
+        ddd(100)
+
+        //오버로딩 - 함수이름은 같고 파라미터가 다른것
+        //오버로딩 없음 덮어쓰기
+        function ddd(){
+            document.write("ddd의 Overloading <br>")
+        }
+        ddd()
+    </script>
+
+    <!-- 리턴이 있는 함수 -->
+    <script>
+        document.write('<hr>')
+        document.write('<h4>리턴이 있는 함수</h4>')
+
+        //return 키워드가 있어도 리턴타입을 명시하지 않음
+        function ggg(){
+            // return 10
+            // return "aaa"
+            // return true
+            // return 5>3
+            return new Date()
+        }
+
+        var g = ggg()
+        document.write(g+"<br>")
+
+        //사용자 객체도 리턴 가능 - 함수도 가능(나중에)
+        function hhh(){
+            return {name:'sam', age:20}
+        }
+
+        var p = hhh()
+        document.write(p.name + ", " + p.age + "<br>")
+    </script>
+
+    <!-- 지역변수와 전역변수 -->
+    <script>
+
+        document.write('<hr>')
+        document.write('<h4>지역변수 와 전역변수</h4>')
+
+        function mmm(){
+            var a = 20 //함수 안에 위치한 var 변수 - 지역변수
+            //전역변수만들기 - 함수안에서 변수 선언하기 단, var키워드 없이 사용
+            //var 이 있으면 지역변수 , 없으면 전역변수
+            b = 50
+            document.write("mmm : " + a + "<br>")
+        }
+
+        mmm()
+        // document.write("mmm : " + a + "<br>") //지역변수 a를 함수 밖에서 사용 - error
+        document.write("mmm안에서 만든 전역변수 : " + b + "<br>")
+
+        //지역변수에서 지역은 {}가 아니라 함수단위
+        //즉, 반복문이나 조건문의 {}는 지역이 아님
+        if(true){
+            var t = 100 //함수 안에 있는것이 아니기때문에 지역변수 아님
+            document.write(t + "<br>")
+        }
+
+        document.write(t + "<br>") //그래서 여기서 인식이 가능함
+
+    </script>
+
+    <!-- 익명힘수 : 이름이 없는 함수 - 반드시 변수에 저장되어서 사용되어야 함 -->
+    <script>
+
+        document.write('<hr>')
+        document.write('<h4>익명함수</h4>')
+
+        // show() //error - 익명함수는 선언적함수와 다르게 먼저 load되지 않음. 그래서 호출순서가 중요함
+
+        var show = function(){ //익명함수
+            document.write("show finction<br>")
+        }
+
+        show() //함수를 저장하는 변수명이 함수이름이 됨 - 이를 이용해 익명함수 호출
+        show()
+
+        //익명함수는 다른 변수에 전달이 가능함
+        var output = show
+
+        output()
+
+    </script>
+
+    <!-- 함수를 다른 함수의 파라미터 or 리턴으로 전달하기 -->
+    <script>
+
+        document.write('<hr>')
+        document.write('<h4>함수를 파라미터 또는 리턴으로 전달</h4>')
+
+        //선언적 함수
+        function kkk(gg){
+            gg() //전달받은 함구를 대신 호출
+        }
+
+        //익명함수
+        var sss = function(){
+            document.write("sss function <br>")
+        }
+
+        kkk(sss)
+        //sss라는 변수가 함수를 가지고 있었으니
+        //이번에는 변수를 굳이 만들지 말고 바로 익명함수를 전달
+        kkk(function(){
+            document.write("익명함수 <br>")
+        })
+
+        //리턴아입으로도 함수를 되돌려 받을 수 있음
+        function ttt(){
+
+            var p = function(){
+                document.write("pppp function")
+            }
+
+            return p //함수를 리턴
+        }
+
+        var z = ttt() //ttt함수에서 return한 익명함수를 z가 받기
+        z() //z라는 이름을 함수이름으로 사용
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

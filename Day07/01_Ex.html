@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>JavaScript TEST</title>
+
+        <!-- JavaScript의 core 문법 정식 명칭 - ECMAscrip(에크마 스크립트) -->
+
+        <!-- 브라우저가 interprete(통역)실행하는 언어 -->
+        <!-- 내부 스크립트 -->
+        <script>
+            // 이 영역안에서는 JS의 문법체계를 따름
+
+            // HTML의 body영역안에 했던 작업들을 모두 스크립트로 처리 가능
+            //화면에 TEXT 출력
+            document.write("Hello world");
+
+            document.write("자동 줄바꿈 안됨 하려면 <br>태그 이용");
+
+            document.write('<hr>'); //태그문을 쓰면 해석되어 그려짐(렌더링)
+            document.write('<a href="">이런식으로 HTML문법 적용가능</a>');
+
+            document.write('<hr>');
+
+            //자바스크립트는 프로그래밍언어이기에 변수나 반복문, 연산자 등이 가능함
+            var a = new Date();
+            document.write(a);
+
+            document.write("<br>");
+            for(var i=0; i<3; i++){
+                document.write(i+", ");
+            }
+
+            //버튼 클릭시에 호출되도록 onclick속성으로 지정된 함수
+            function aaa(){
+                // alert('clicked button');
+
+                //HTML의 p요소에게 글씨를 설정해보기
+                //id속성이 "p1"인 요소를 찾아와 참조하기
+                var e = document.getElementById("p1")
+                e.innerHTML="Nice to meet you"
+            }
+
+            //JS 는 문장의 끝을 나타내는 ;을 생략해도 됨. -요즘은 이런 추세임
+            document.write("aaaaa")
+            document.write("bbbbb")
+        </script>
+    </head>
+    <body>
+
+        <hr>
+
+        Hellow World!!
+
+        <p>
+            <button onclick="aaa()">button</button>
+        </p>
+
+        <p id="p1">Hello</p>
+        
+    </body>
+</html>
