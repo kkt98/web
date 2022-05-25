@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>bootstrap</title>
+
+        <!-- 부트스트랩 라이브러리 적용 : https://getbootstrap.com -->
+        <!-- 1. 다운로드 -->
+        <link rel="stylesheet" href="./CSS/bootstrap.css">
+        <script src="./JS/bootstrap.js"></script>
+
+        <!-- 2. CDM방식 -->
+
+    </head>
+    <body>
+        
+        <button>button</button>
+
+        <div class="container" style="text-align: center; padding-top: 16px;">
+            <button class="btn btn-success">button</button>
+            <button class="btn btn-danger">button</button>
+        </div>
+
+        <!-- 가장 많이 사용되는 스타일 - 게시판 만들때 사용하는 스타일 -->
+        <table class="table table-hover mt-3">
+
+            <tr>
+                <th>no</th>
+                <th>name</th>
+                <th>message</th>
+                <th>date</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>kim</td>
+                <td>Hello</td>
+                <td>2022-05-25</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>sam</td>
+                <td>halo</td>
+                <td>2022-05-26</td>
+            </tr>
+
+        </table>
+
+        <!-- 게시판의 페이지 번호 pagenation -->
+        <ul class="pagination justify-content-center">
+            <li class="page-item"><a href=""class="page-link">1</a></li>
+            <li class="page-item"><a href=""class="page-link">2</a></li>
+            <li class="page-item"><a href=""class="page-link">3</a></li>
+            <li class="page-item"><a href=""class="page-link">4</a></li>
+            <li class="page-item"><a href=""class="page-link">5</a></li>
+            <li class="page-item"><a href="" class="page-link">6</a></li>
+        </ul>
+
+        <!-- 쇼핑몰같은 곳에서 많이 보는 card레이아웃 -->
+        <div class="card" style="width: 18rem;">
+            <img src="../Day12/image/tshirt.jpg " clss="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+
+    </body>
+</html>
