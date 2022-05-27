@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>class 키워드</title>
+    </head>
+    <body>
+        <script>
+
+            //객체를 생성하는 새로운 방법 : class 키워드 등장
+
+            //기존 JS의 객체생성 2가지 방법 확인
+            //1. litreal 객체 [객체 생성하면서 멤버설계]
+            var h = {
+                name:"sma",
+                age:20,
+                show:function(){
+                    document.write(this.name + " : " + this.age + "<br>")
+                }
+            }
+            h.name = "kim"
+            h.age = 30
+            h.show()
+
+            //2. 생성자함수를 이용하여 객체의 멤버를 설계하고 new로 객체생성
+            function Human(name, age){
+                this.name = name,
+                this.age = age,
+                this.show = function(){
+                    document.write(this.name + " : " + this.age + "<br>")
+                }
+            }
+            var hh = new Human("robin", 25)
+            hh.show()
+
+            var hh2 = new Human("hong", 30)
+            hh2.show()
+
+            //3. class키워드로 객체의 멤버를 설계하고 new 키워드로 객체생성
+            class Person{
+                //기존 생성자함수처럼 this.키워드로 멤버만들면 에러
+                // this.name = "sma" //error
+                // var name = "aaa" //error
+
+                //아무런 키워드 없이 그냥 변수명만 쓰면 멤버변수
+                name = "sam"
+                age = 20
+
+                //다른방법으로 멤버변수를 만드는 방법
+                //생성자 함수안에 변수를 만드는 방법
+                constructor(){
+                    this.address = "seoul" //this.키워드 필요
+                }
+
+                //멤버함수[메소드]
+                //function show() {} //error // function키워드로 만들면 안됨
+                //키워드 없이 함수 선언
+                show(){
+                    document.write("name : " + this.name + "<br>")
+                    document.write("age : " + this.age + "<br>")
+                    document.write("address : " + this.address + "<br>")
+                }
+
+                //익명함수로 메소드 만들기
+                output = function(){
+                    document.write("output!!")
+                }
+            }
+
+            //Perosn class를 객체로 생성
+            let p = new Person()
+            p.name = "kim"
+            p.age = 25
+            document.write("name : " + p.name + "<br>")
+            document.write("adress : " + p.address + "<br>")
+            p.show()
+            p.output()
+
+        </script>
+        
+        <hr>
+
+        <script>
+            //과연 위에서 만든 Person class를 인식할까
+            const p2 = new Person()
+            p2.show()
+
+            //객체를 생성하면서 값을 전달하기 생성자함수에 파라미터 사용하기
+            class Member{
+                constructor(id, pw){
+                    if(id == undefined) this.id = "기본아이디"
+                    this.id = id
+                    this.pw = pw
+                }
+
+                //생성자 함수를 Overloading - 기능 없음 - 작성하면 심각한 에러발생
+                // constructor(){
+                //     this.id = "기본 아이디"
+                //     this.pw = "기본 비번"
+                // }
+
+                show(){
+                    document.write("ID : " + this.id + ", " + "pw : " + this.pw + "<br>")
+                }
+
+                //일반 메소드도 overloading 이 없을까
+                output(){
+                    document.write("no data <br>")
+                }
+
+                //JS에서는 overloading은 없고 overwite만 됨.(즉, 덮어쓰기 됨)
+                output(a){
+                    document.write(a + "<br>")
+                }
+
+                //리턴값이 있는 메소드
+                add(x, y){
+                    return x+y
+                }
+
+                //멤버함수를 밖에서 만든 선언적함수를 이용할 수 있음.
+                display = aaa
+
+            }//Member class
+
+            const m = new Member("mrhi", 1234)
+            m.show()
+
+            //혹시 생성자에 값 안주면 - error가 아니라 undifined
+            //그래서 생성자 함수를 오버로딩을 시도...
+            const m2 = new Member("kkk")
+            m2.show()
+
+            m2.output()
+            m2.output(1000)
+
+            let num = m2.add(5, 3)
+            document.write(num + "<br>")
+
+            //아주 특이하게 멤버함수를 만드는 방법
+            function aaa(){
+                document.write("ID : " + this.id + "<br>")
+            }
+
+            m2.display()
+
+        </script>
+
+        <hr>
+
+        <script>
+
+            // 클래스의 상속
+
+            // 상속을 해줄 클래스
+            class Persan{
+                constructor(name, age){
+                    this.name = name
+                    this.age = age
+                }
+                show(){
+                    document.write("name : "  + this.name + ", " + this.age + "<br>")
+                }
+            }
+
+            let person = new Persan("sam", 20)
+            person.show()
+
+            //상속받기
+            class Student extends Persan{
+                constructor(name, age, major){
+                    //JS의 자식생성자 함수안에서 반드시 명시적으로 부모생성자를 호출해야함.
+                    super(name, age) //부모멤버는 부모생성자에게
+                    this.major = major
+                }
+                //상속받은 기능이 맘에 들지 않아 수정하기 - override
+                show(){
+                    super.show()
+                    document.write(this.major + "<br>")
+                }
+            }
+
+            const s = new Student("robbin", 25, "android")
+            s.show() //override된 show()
+
+        </script>
+
+        <hr>
+
+        <script>
+
+            //객체 생성없이 존재하는 멤버. static 멤버
+            class First{
+                static show(){
+                    document.write("First show()")
+                }
+            }
+
+            //static 멤버는 객체생성없이 클래스명.xxx()로 호출
+            First.show()
+
+            class Second{
+                //Static 멤버변수
+                constructor(){
+                    // static this.name = "sam" //static 키워드는 함수안에서 사용불가
+                }
+
+                //static 멤버변수(property)
+                static name = "sam"
+            }
+
+            //객체생성없이 변수 사영
+            document.write("name : " + Second.name + "<br>")
+
+            Second.name = "robbin"
+            document.write("name : "+ Second.name + "<br>")
+
+            //Java와 다른점 객체를 생성하고 객체참조변수로는 static사용불가능
+            let ss = new Second()
+            document.write("name : " + ss.name + "<br>") //ss객체에 새로운 멤버변수 name을 만든것이 되어버림
+
+        </script>
+
+        <hr>
+
+        <script>
+
+            //객체의 멤버를 설계와 다르게 생성한 후 확장할 수 있음.
+            class Test{
+                name = "aaa"
+                show(){
+                    document.write("name : "+ this.name + "<br>")
+                }
+            }
+
+            let t = new Test()
+            t.show()
+
+            //객체생성후에 설계도면(class) 에 없던 멤버 추가 가능함
+            t.age = 20
+            document.write(t.age + "<br>")
+
+            //멤버함수도 추가할 수 있음 [일종의 설계도와 다른 기능 추가]
+            //[확장함수] 라고 부름
+            t.output = function(){
+                document.write(this.name + ", " + this.age + "<br>")
+            }
+            t.output()
+
+        </script>
+
+        <hr>
+
+        <script>
+
+            //구조분해할당
+            class Nice{
+                constructor(){
+                    this.name = "kim"
+                    this.age = 20
+                    this.address = "seoul"
+                }
+            }
+
+            let nice = new Nice()
+            document.write("name : " + nice.name + "<br>")
+            document.write("age : " + nice.age + "<br>")
+            document.write("address : " + nice.address + "<br>")
+
+            // let name = nice.name
+            // let age = nice.age
+            // let adress = nice.address
+            //하나씩 멤버값을 빼와서 일반 변수에 대입하면 다음부터 사용할때 편함
+            //일반변수에 객체의 멤버변수를 하나씩 할당하는 것도 다소 짜증
+            let {name,age} = nice //객체의 멤버중에서 name만 빼서 일반 변수에 할당 [구조분해할당]
+            document.write("name : "  + name + "<br>")
+            document.write("age : "  + age + "<br>")
+
+            showAddress(nice) //객체를 전달
+
+            //nice객체의 주소값을 출략헤주는 기능함수
+            function showAddress({address, age}){ //전달된 객체를 구조분해할당으로 받기
+                document.write(address + "<br>")
+                document.write(age + "<br>")
+            }
+
+            //nam 이라는 멤버가 없으면 구조분해 할당 안됨
+            const {address, nam} = nice
+            document.write(address + "<br>")
+            document.write(nam + "<br>")
+
+            //특이한 구조분해 할당
+            //특정 멤버를 제외한 나머지들을 하나의 객체로 할당받기
+            class Hello{
+                aaaa=10
+                bbbb=20
+                cccc=30
+                dddd=40
+            }
+
+            let hello = new Hello()
+            const {aaaa, ...rest} = hello //...rest라는 객체에 나머지 멤버가 모두 할당됨
+            document.write(aaaa + "<br>")
+            document.write(rest.bbbb + "<br>")
+            document.write(rest.cccc + "<br>")
+            document.write(rest.dddd + "<br>")
+
+        </script>
+    </body>
+</html>

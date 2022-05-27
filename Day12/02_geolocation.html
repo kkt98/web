@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>위치정보탐색</title>
+
+        <script>
+            function clickBtn(){
+                //파라미터에 전달한 함수가 내 위치 얻었으때 자동발동
+                window.navigator.geolocation.getCurrentPosition( function(position){
+                    var lat = position.coords.latitude
+                    var lon = position.coords.longitude
+
+                    document.getElementById('hh').innerHTML = lat +  ", " + lon
+                } )
+            }
+
+            var watcher
+            function clickBtn2(){
+                watcher = navigator.geolocation.watchPosition(function(position){
+                    var lat = position.coords.latitude
+                    var lon = position.coords.longitude
+
+                    document.getElementById('hh').innerHTML = lat + ", " + lon
+                })
+            }
+
+            function clickBtn3(){
+                navigator.geolocation.clearWatch(watcher)
+            }
+        </script>
+    </head>
+    <body>
+        <button onclick="clickBtn()">my location</button>
+        <h3 id="hh">location result</h3>
+
+        <button onclick="clickBtn2()">위치 자동 업데이트</button>
+        <button onclick="clickBtn3()">위치 업데이트 종료</button>
+    </body>
+</html>

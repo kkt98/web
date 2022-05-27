@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        div#cart{
+            width: 400px; height: 150px; padding: 10px; border: 1px dotted red;
+        }
+    </style>
+
+    <script>
+
+        var id //드래그되는 요소의 id를 저장하는 변수
+        var overTarget = flase //드래그되는 요소가 타겟요소 위에 있는가
+
+        function startDrag(){
+            //드래그 이벤트의 정보를 가진 객체에게 어떤요소인지 id를 알아내기
+            id = window.event.target.id
+        }
+
+        function overDrag(){
+            overTarget = true
+            //기본적으로 요소위에 drop.되는 것이 금지되어 있기에
+            //이 기본설정을 거부(방지)하기
+            event.preventDefault()
+        }
+
+        function leaveDrag(){
+            overTarget = false
+        }
+
+        function dropDrag(){
+            // if(overTarget){
+                
+            // }
+        }
+
+        function endDrag(){
+            if(overTarget){
+                //드래그되는요소를 찾아오기
+                var e = document.getElementById(id)
+                //찾은 요소를 target요소의 자식으로 추가
+                document.getElementById('cart').appendChild(e)
+
+                overTarget = false
+            }
+        } 
+    </script>
+</head>
+<body>
+    <div id="cart" ondragover="overDrag()" ondrop="dropDrag()" ondragleave="leaveDrag()"></div>
+
+    <img src="./image/computer.png" width="150" height="150" id="imag01" ondragstart="startDrag()" ondragend="endDrag()">
+    <img src="./image/tshirt.jpg" width="150" height="150" id="imag02" ondragstart="startDrag()" ondragend="endDrag()">
+</body>
+</html>

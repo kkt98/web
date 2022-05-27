@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>module Test</title>
+
+        <!-- Module -->
+        <!-- 하나의 .js에서 다른 .js 문서의 변수나 함수 or 클래스등을 사용하는 기법 -->
+        <!-- 웹서버에서 동작함 or node.js -->
+        <script type="module">
+            //이 영역은 JS영역
+            //여기서 다른 .js의 내용을 가져오기
+            // import show from './module_aa.js'
+
+            //default export가 아닌 녀억들을 무조건 구조분해할당의 문법으로 받아야함
+            // import {addHeadingElementToBoddy} from './module_aa.js'
+            // import {name, num} from './module_aa.js'
+
+            //위 import 모두 같은 .js 이므로 한번에 import가능
+            //변수명을 as 키워드로 이용해서 바꾸는것이 가능
+            import show, {name, num as n, addHeadingElementToBody} from './moduale_aa.js'
+
+            show()
+            addHeadingElementToBoddy("Nice")
+            alert(name + ", " + n)
+        </script>
+
+    </head>
+    <body>
+        
+    </body>
+</html>

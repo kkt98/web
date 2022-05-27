@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+
+        <script>
+            function clickBtn(){
+                //별도의 Thread를 사용하지 않고 main thread가 오래걸리는 작업 수행하도록
+                var n=0
+                while(true){
+                    n++
+                    document.getElementById('hh').innerHTML = n
+                    //무한이 반복중 그러면 화면을 그려내는 작업조차 못함
+                }
+            }
+        </script>
+    </head>
+    <body>
+        
+        <!-- 웹 워커 : JS의 Thread(별도의 작업자) -->
+        <button onclick="clickBtn()">무한반복</button>
+        <br>
+        <h2 id="hh">RESULT : </h2>
+        <hr>
+        <button>button</button>
+
+        <hr>
+
+        <!-- 웹 워커를 이용하여 main thread 별도의 작업을 수행토록 -->
+        <button onclick="clickbtn2()">start worker</button>
+        <button onclick="clickbtn3()">stop worker</button>
+
+        <script>
+
+            var w //워커객체 참조변수
+            function clickbtn2(){
+
+                if(w==undefined){
+
+                    //worker객체 생성하면 자동 start - local에서는 실행이 안되고, 웹서버에 업로드
+                    w = new Worker('./worker.js') //워커가 할일은 별도의 js문서에 작성
+
+                    //워커의 작업코드 안에서 postMessage()를 통해 데이터를 전달하면
+                    //자동으로 실행되는 콜백함수
+                    w.onmessage = function(event){ //데이터를 가진 event객체가 전달됨
+                        document.getElementById('hh').innerHTML = event.data
+                    }
+                }else{
+                    alert("이미 워커가 존재함")
+                }
+
+            }
+
+            function clickbtn3(){
+                w.terminate()
+                w.undefined
+            }
+
+        </script>
+    </body>
+</html>

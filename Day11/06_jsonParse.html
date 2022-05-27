@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>json파싱</title>
+
+    <script>
+        function aaa(){
+            //json object 파싱 연습
+
+            var s = '{"name":"sam", "age":"20"}'
+
+            //Json문자열을 객체로 변환
+            var person = JSON.parse(s)
+
+            document.getElementById('target').innerHTML = person.name + " : " + person.age
+        }
+
+        function bbb(){
+            //json array를 배열객체로 변환
+            var ss = '['+
+                '{"name" : "sam", "age" :20},' + 
+                '{"name" : "sam", "age" :20},' + 
+                '{"name" : "sam", "age" :20},'
+            ']'
+
+            var people = JSON.parse(Ss)
+
+s           var people = JSON,person
+        }
+    </script>
+
+    <hr>
+
+    <!-- JS의 객체를 JSON문자열로 변환 -->
+    <button onclick="ccc()">object to dd</button>
+    <button onclick="ddd()">object to dd</button>
+    
+    <script>
+
+        function ccc(){
+            // JS의 객체
+            var person = {
+                name:"name",
+                age:20
+            }
+        }
+
+        function ddd(){
+
+            var objectArray = [
+                {name:"same", age:20, adress:{nation:"korea", city:"seoul"}}
+                {name:"kim", age:25, address:{nation:"korea", city:"seoul"}}
+
+                var json = JSON.stringify(objectArray)
+                document.getElementById('aa').innerHTML = json
+            ]
+        }
+
+    </script>
+</head>
+<body>
+
+    <h3 id="target"></h3>
+    <button onclick="aaa()">jsonObject 파싱</button>
+    <button onclick="bbb()">jsonArray 파싱</button>
+    
+</body>
+</html>

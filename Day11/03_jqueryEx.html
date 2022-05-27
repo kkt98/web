@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>JQuery Example</title>
+
+        <!-- JQuery library : www.jquery.com -->
+        <!-- 1. 파일다운로드 양식 -->
+        <!-- <script src="./jquery-3.6.0.min.js"></script> -->
+
+        <!-- 2. CDN(Content Dilivery Network)방식 - 링크만 걸린상태 -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <!-- 내부스크립트 -->
+        <script>
+
+            //웹문서의 로드가 완료되면 실행되는 콜백함수 지정
+            jQuery(document).ready( function(){
+                // alert('document ready')
+
+                //JQurey 라이브러리 장점 : 요소검색이 쉬움, 이벤트처리 간결, 애니메이션 적용 쉬움
+
+                //HTML요소를 찾을때 CSS선택자를 이용해서 쉽게 선택할 수 있음
+                //문범
+                //1) jQuery('CSS선택자' or 객체).xxx()
+                //1) $('CSS선택자' or 객체).xxx()
+                jQuery('#btn').click( function(){
+                    alert('clicked')
+                    $(this).hide()
+                } )
+
+                //jquery의 클릭 이벤트처리와 애니메이션 적용
+                $('#b1').click( function(){
+                    $('img').show('slow')
+                })
+
+                $('#b2').click( function(){
+                    $('img').hide(3000)
+                })
+
+                $('#b3').click( function(){
+                    $('img').toggle('fest')
+                })
+
+                'b4'.bind('click', function(){
+                    $('img').fadeOut(5000)
+                })
+
+                'b7'.bind('click', function(){
+                    $('img').fadeOut(5000)
+                })
+
+                'b8'.bind('click', function(){
+                    $('img').fadeOut(5000)
+                })
+
+                'b9'.bind('click', function(){
+                    $('img').fadeOut(5000)
+                })
+
+                $('#b10').on('click', function(){
+                    $('img').fadeOut('slow').slideDown('slow')
+                })
+
+                
+
+                
+            })
+
+        </script>
+    </head>
+    <body>
+        
+        <button id="btn">Button</button>
+
+        <hr>
+        <p>
+            <button id="b1">show</button>
+            <button id="b2">hide</button>
+            <button id="b3">toggle</button>
+            <button id="b4">fadeIn</button>
+            <button id="b5">fadeOut</button>
+            <button id="b6">t</button>
+            <button id="b7">fadeIn</button>
+            <button id="b8">fadeOut</button>
+            <button id="b9">t</button>
+            <button id="b10">t</button>
+        </p>
+
+        <img src="./image/frog.png" width="200">
+
+    </body>
+</html>

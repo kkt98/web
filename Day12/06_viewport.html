@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>view port</title>
+
+        <!-- 뷰포트 : 디바이스에서 화면의 크기를 인식하는 가상의 box영역 -->
+        <!-- 데스크탑일때는 뷰포트의 크기가 무조건 브라우저의 크기와 같음 -->
+        <!-- 모바일 일때는 실제 디바이스의 해상도 너비와 상관없이 무조건 뷰포트가 980으로 고정되어 있음 -->
+        <!-- 그래서 실제 디바이스의 사이즈에 맞게 뷰포트를 설정해 줄 필요가 있음 -->
+        <!-- <meta name="viewport" content="width=412, initial-scale=1.0"> -->
+        <!-- <meta name="viewport" content="width=600, initial-scale=1.0"> -->
+        <!-- <meta name="viewport" content="width=980, initial-scale=1.0"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- 단, device-width만 가능함, ios도 아마 곧 적용 -->
+    </head>
+    <body>
+        <h2>View port Test</h2>
+        <p>모바일 웹에서 필수로 적용해야할 요소</p>
+
+        <img src="./image/computer.png" alt="comput" style="width: 200px; border: 1px dotted red;">
+    </body>
+</html>

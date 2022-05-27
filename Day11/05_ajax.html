@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script>
+        //AJAX(Asynchroni JavaScript And XML)
+        //AJAX기술은 서버환경에서만 구동함
+
+        function aaa(){
+            
+            //네트워크 통신을 수행하는 객체 생성 [마치. android의 HttpUrlConnect과 같은 역할]
+            var xhr = new XMLHttpRequest()
+
+            //send()보다 먼저 작성하는 것을 권장! - 강하게
+            //서버로부터 응답을 받으면 자동으로 발동하는 함수 지정!
+            xhr.onreadystatechange = function(){
+                //통신을 시작하면 서버로부터 응답을 받는 상황이 여러번.
+                //서버의 상태변화를 번호로 전달받음
+                if(xhr.readyState == 4 && xhr.status == 200){
+                    document.getElementById('ta').innerHTML = xhr.responseText
+                }
+            }
+
+            //xhr.open('GET', './aaa.txt', true) //세번째 파라미터 : Asynchronous 여부
+            xhr.open('GET', './05_getTest.php?title=Hello&msg=nice to meet you', true);
+            xhr.send()
+
+        }
+
+        function bbb(){
+            var xhr = new XMLHttpRequest()
+            xhr.onreadystatechange = function(){
+
+                if(xhr.readyState==4&& xhr.sstatus == 200)
+
+            }
+
+            xhr.open('POST', '/05_postTest.php', true)
+
+            xhr.setRequestHeader('Content-type', 'application/x-www-form -urlencoded')
+            xhr.end('id=avcd&pw=1234')
+        }
+    </script>
+</head>
+<body>
+    <!-- 서버와의 통신을 form요소말고 JS를 이용하여 데이터만 주고받기 -->
+    <p>
+        <button onclick="aaa()">GET METHOD</button>
+        <button onclick="bbb()">POST METHOD</button>
+    </p>
+
+    <textarea id="ta" cols="40" rows="5"></textarea>
+</body>
+</html>

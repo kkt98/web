@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>let & const</title>
+    </head>
+    <body>
+        
+        <script>
+
+            //ECMAscript 2015버전 (ES6) 의 새로운 문법
+
+            //1. 변수선언 키워드 추가 : let, const
+
+            //기존의 var변수
+            var a = 10
+            document.write(a + "<br>")
+
+            //혹시 같은 이름의 변수를 또 만들면 - var 키워드를 무시
+            var a = 20
+            document.write(a + "<br>")
+
+            //새로운 키워드 let
+            let b = 100
+            document.write(b + "<br>")
+
+            //혹시 같은 이름의 변수를 또 만들면 문법적 error발생
+            // let b = 200 //error
+
+            //let은 변수이므로 값변경은 가능함
+            b = 20
+            document.write(b + "<br>")
+
+            //const 키워드 - 상수화된 변수 [값 변경 불가한 변수]
+            const c = 1000
+            document.writeln(c + "<br>")
+
+            //값 변경 요청하면 문법적 에러는 없음 하지만 예외
+            // c = 2000
+            // document.writeln(c) //여기서 예외가 발생하고 이 다음부터 실행멈춤
+
+            //같은변수를 또 만들면? 문법적 에러
+            //const c = 2000 //error
+
+            //let도 동적타입 변수에 가지고 있던 차입이 바뀔 수 있음
+            let d = 30 //number
+
+            d="aaa" //string
+            d=true //boolean
+            d = new Date() //object
+            d = function(){} //function
+
+            //let과 var의 또 다른 차이점 [변수의 인식범위 차이 즉, 지약뱐수에서 지역의 의미가 다름]
+            //var키워드는 함수가 지역임
+            //let, const는 {}가 지역임
+
+            if(true){
+                var k = 50
+                document.writeln(k + "<br>")
+            }
+
+            document.writeln(k + "<br>") //k를 인식할 수 있음.
+
+            if(true){
+                let n = 500 //지역변수
+                document.write(n + "<br>")
+            }
+
+            document.write(n + "<br>") //n이 인식되지 않아서 예외발생
+        </script>
+
+    </body>
+</html>

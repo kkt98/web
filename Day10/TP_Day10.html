@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+
+        
+    </head>
+    <body>
+        
+        <button onclick="aa()">버튼</button>
+        <script>
+
+            function aa(){
+                alert("반갑습니다.")
+            }
+
+        </script>
+
+        <hr>
+
+        <p id="p1">버튼을 누르면 이 요소의 내용이 변경됩니다.</p>
+        <button onclick="bb()">Button</button>
+
+        <script>
+
+            function bb(){
+                document.getElementById("p1").innerHTML = "이 텍스트는 자바 스크립트에서 변경한 것입니다."
+            }
+
+
+        </script>
+
+        <hr>
+
+        <p>숫자를 입력하시오</p>
+        <input type="text" id="in1">
+        <button onclick="tt()">입력완료</button>
+
+        <script>
+            function tt(){
+                var value = document.getElementById('in1').value
+
+                regExp = /^[0-9]+$/
+                if(regExp.test(value)) alert("숫자입니다")
+                else alert("숫자가 아닙니다.")
+            }
+        </script>
+
+        <hr>
+
+        <style>
+            p{
+                display: inline-block;
+            }
+        </style>
+
+        <h3>회원 신청서</h3>
+
+        <br>
+
+        <fieldset></fieldset>
+
+        <script>
+
+            
+
+
+        </script>
+
+    </body>
+</html>
